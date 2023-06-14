@@ -37,7 +37,7 @@ class Brand(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField()
     founding_year = models.PositiveIntegerField(
-        validators=[MinValueValidator(1900), MaxValueValidator(3000)]
+        validators=[MinValueValidator(1500), MaxValueValidator(3000)]
     )
     company_size = models.PositiveIntegerField(
         validators=[MinValueValidator(1)], default=1
