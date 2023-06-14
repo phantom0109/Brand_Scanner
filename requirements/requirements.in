@@ -4,6 +4,7 @@ ipython
 mysqlclient
 sqlparse
 pymemcache
+Pillow
 
 # 12-factor security
 django-environ
