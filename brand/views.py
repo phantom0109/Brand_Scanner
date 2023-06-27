@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from brand.models import Brand
+
 
 def brand_listing(request):
-    return render(request, "brand-listing.html")
+    brands = Brand.objects.filter()
+    return render(request, "brand-listing.html", {"brands": brands})
