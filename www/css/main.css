@@ -8,6 +8,39 @@
     --primary-header-color: #0F212A;
 }
 
+.container1{
+    height: 70%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container2{
+    flex-direction: column;
+    margin-top: 66px;
+}
+
+.container3{
+    flex-direction: column;
+}
+
+.beta{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #5A7989;
+}
+
+.beta-strip{
+    height:44px;
+    color:#FFFFFF;
+}
+
+button.primary.hello-shoppers {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
 button {
     cursor: pointer;
 }
@@ -779,6 +812,10 @@ button.filter-button {
 
     .brands-container {
         width: 33%;
+    }
+
+    .container1, .container2, .container3{
+        flex-direction: row;
     }
 
 }
