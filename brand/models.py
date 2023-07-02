@@ -232,14 +232,14 @@ class BrandAsset(models.Model):
 
     endorsement = models.ForeignKey(
         BrandEndorsement,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
         help_text="Associate with an endorsement, if applicable.",
     )
     bestseller = models.ForeignKey(
         BrandBestseller,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
         help_text="Associate with a bestseller, if applicable.",
@@ -262,7 +262,7 @@ class BrandVisual(models.Model):
 
     logo = models.ForeignKey(
         BrandAsset,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name="brand_logo",
         blank=True,
         null=True,
@@ -270,7 +270,7 @@ class BrandVisual(models.Model):
     )
     cover = models.ForeignKey(
         BrandAsset,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name="brand_cover",
         blank=True,
         null=True,
