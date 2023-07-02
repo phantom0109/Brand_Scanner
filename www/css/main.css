@@ -309,6 +309,9 @@ button.filter-button {
 }
 
 .brands-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     float: left;
     box-sizing: border-box;
     margin-bottom: 20px;
