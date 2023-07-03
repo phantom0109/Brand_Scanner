@@ -309,9 +309,6 @@ button.filter-button {
 }
 
 .brands-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     float: left;
     box-sizing: border-box;
     margin-bottom: 20px;
@@ -382,6 +379,13 @@ button.filter-button {
     width: 0.7em;
 }
 
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 8px;
+  }
+
 .rating {
     font-family: 'Roboto';
     font-style: normal;
@@ -412,8 +416,44 @@ button.filter-button {
     flex-direction: column;
 }
 
+.homepage-start{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .tag-item {
     margin: 5px;
+}
+
+.box-shadow-orange{
+    box-shadow: 10px 10px 10px 0px #E1630030;
+}
+
+.container3 > .margin-top-66-pc-adjusted{
+    margin-top: 66px;
+}
+
+.intro-container1{
+    display: flex;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+.intro-container1>.margin-bottom-66-pc{
+    margin-bottom: 66px;
+}
+
+.intro-container2{
+    display: flex;
+    margin-top: 66px;
+    justify-content: center;
+    display: none;
+}
+
+.text-align-pc-adjusted{
+    text-align: center;
 }
 
 
@@ -562,6 +602,18 @@ button.filter-button {
         color: #FFFFFF;
     }
 
+
+    .homepage-start{
+        justify-content: start;
+        align-items: flex-start;
+
+    }
+
+    .text-align-pc-adjusted{
+        text-align: start;
+    }
+
+
     button.container-item:hover .label {
         color: #FFFFFF;
     }
@@ -574,12 +626,24 @@ button.filter-button {
         border-radius: 30px;
     }
 
+    .intro-container1>.margin-bottom-66-pc{
+        margin-bottom: 0px;
+    }
+
     #search-bar::-webkit-input-placeholder {
         color: #FFFFFF;
     }
 
     #search-bar {
         margin-right: 72px;
+    }
+
+    .box-shadow-orange{
+        box-shadow: none;
+    }
+
+    .box-shadow-orange:hover{
+        box-shadow: 10px 10px 10px 0px #E1630030;
     }
 
     button.btn-secondary {
@@ -625,7 +689,6 @@ button.filter-button {
     .hide-on-mobile {
         display: inline-block;
     }
-
 
     .container {
         margin: 80px auto;
@@ -716,6 +779,21 @@ button.filter-button {
         border-radius: 3px;
         cursor: pointer;
     }
+
+    .container3 > .margin-top-66-pc-adjusted{
+        margin-top: 24px;
+    }
+
+
+    .intro-container1{
+        margin-top: 0px;
+    }
+
+    .intro-container2{
+        margin-top: 0px;
+    }
+
+
 
     /* Fix for IE 8 putting the arrows behind the select element. */
 
@@ -817,7 +895,11 @@ button.filter-button {
         width: 33%;
     }
 
-    .container1, .container2, .container3{
+    .container1{
+        flex-direction: row-reverse;
+    }
+
+    .container2, .container3{
         flex-direction: row;
     }
 

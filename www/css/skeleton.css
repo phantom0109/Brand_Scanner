@@ -11,6 +11,14 @@
     background-color: #FFECDE;
 }
 
+.flex-column-reverse{
+    flex-direction: column-reverse;
+}
+
+.flex-row-reverse{
+    flex-direction: row-reverse;
+}
+
 button{
     box-sizing: border-box;
     border-radius: 30px;
@@ -332,9 +340,6 @@ input[type="checkbox"]:checked {
     margin-bottom: 16px;
 }
 
-.box-shadow-orange{
-    box-shadow: 10px 10px 10px 0px #E1630030;
-}
 
 .margin-8{
     margin: 8px;
