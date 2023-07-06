@@ -21,7 +21,7 @@
     {% include 'brand-filter.html' with category_tags=category_tags %}
     <div>
         <div class="flex justify-content-center align-center search-result">
-            Search Results/ {{ brands|length }} out of {{ brands|length }}
+            Search Results/ {{ brands|length }} out of {{ total_brands }}
         </div>
         <div class="flex justify-content-center align-center search-result-big">
             We have curated some brands for you! ({{ brands|length }})

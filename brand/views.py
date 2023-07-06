@@ -1,11 +1,13 @@
+from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, render
 
 from brand.models import Brand, Category, Tag
 
+PAGE_SIZE = 20
 BRAND_TAGS = {
     "location": Brand.Location.choices,
-    "indicative_pricing": Brand.IndicativePricing.choices,
+    "pricing": Brand.IndicativePricing.choices,
 }
 
 
@@ -54,12 +56,17 @@ def brand_listing(request, selected_category):
             brandcategory__category__internal_name=category.internal_name
         )
 
+    paginator = Paginator(brands, PAGE_SIZE)
+    page_number = request.GET.get("page", 0)
+    page = paginator.get_page(page_number)
+
     return render(
         request,
         "brand-listing.html",
         {
             "selected_category": category,
-            "brands": brands,
+            "brands": page,
+            "total_brands": len(brands),
             "category_tags": category_tags,
             "brand_tags": BRAND_TAGS,
         },
