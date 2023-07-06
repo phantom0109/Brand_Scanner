@@ -244,7 +244,7 @@ class BrandAsset(models.Model):
         null=True,
         help_text="Associate with a bestseller, if applicable.",
     )
-    priority = models.PositiveIntegerField(default=1)
+    sequence = models.PositiveIntegerField(default=1)
 
     uploaded_at = models.DateTimeField(default=current_india_time)
 
@@ -282,17 +282,23 @@ class BrandVisual(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=25)
+    internal_name = LowerCaseCharField(max_length=15)
+    display_name = models.CharField(max_length=30)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.display_name}"
 
     class Meta:
         verbose_name_plural = "categories"
         constraints = [
             UniqueConstraint(
-                Lower("name"), name="unique_case_insensitive_category_name"
-            )
+                Lower("internal_name"),
+                name="unique_case_insensitive_category_internal_name",
+            ),
+            UniqueConstraint(
+                Lower("display_name"),
+                name="unique_case_insensitive_category_display_name",
+            ),
         ]
 
 
@@ -300,6 +306,7 @@ class Tag(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     name = LowerCaseCharField(max_length=30)
     value = LowerCaseCharField(max_length=50)
+    sequence = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return f"[{self.category}] {self.name}={self.value}"
@@ -321,7 +328,7 @@ class BrandCategory(models.Model):
     keywords = models.TextField(blank=True)
 
     def __str__(self):
-        return f"[{self.brand.name}] {self.category.name}"
+        return f"[{self.brand.name}] {self.category.display_name}"
 
     class Meta:
         verbose_name_plural = "brand categories"

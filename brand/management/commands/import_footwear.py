@@ -340,7 +340,7 @@ FOOTWEAR_RULES = {
 }
 
 
-CATEGORY__RULES = {"Footwear": FOOTWEAR_RULES}
+CATEGORY__RULES = {"footwear": FOOTWEAR_RULES}
 
 
 class Command(BaseCommand):
@@ -355,16 +355,18 @@ class Command(BaseCommand):
         if not is_csv(csv_file_path):
             print(f"{csv_file_path} is not a CSV file.")
 
-        category = Category.objects.get_or_create(name="Footwear")[0]
+        category = Category.objects.get_or_create(internal_name="footwear")[0]
         print(f"Category is {category}")
 
-        csv_rows = csv_to_dict_list(csv_file_path)
+        csv_rows = csv_to_dict_list(csv_file_path)[:3]
         for idx, csv_row in enumerate(csv_rows):
             print(f"\n==== Reading row entry at idx {idx} ====")
 
             # Import Brand
             print(">> Brand <<")
-            brand = import_as_brand(CATEGORY__RULES[category.name], csv_row)
+            brand = import_as_brand(
+                CATEGORY__RULES[category.internal_name], csv_row
+            )
             if brand is None:
                 print("Ignored Brand. Skipping other model imports as well.")
                 continue
@@ -380,7 +382,7 @@ class Command(BaseCommand):
             # Import BrandOnlineStore
             print(">> BrandOnlineStore <<")
             brand_online_stores = import_as_brandonlinestore(
-                CATEGORY__RULES[category.name],
+                CATEGORY__RULES[category.internal_name],
                 csv_row,
                 foreign={"Brand": brand},
             )
@@ -397,7 +399,9 @@ class Command(BaseCommand):
 
             # Import Person
             print(">> Person <<")
-            person = import_as_person(CATEGORY__RULES[category.name], csv_row)
+            person = import_as_person(
+                CATEGORY__RULES[category.internal_name], csv_row
+            )
             import_brandkeyperson = False
             if person is None:
                 print("Ignored Person.")
@@ -415,7 +419,7 @@ class Command(BaseCommand):
             if import_brandkeyperson:
                 print(">> BrandKeyPerson <<")
                 brand_key_person = import_as_brandkeyperson(
-                    CATEGORY__RULES[category.name],
+                    CATEGORY__RULES[category.internal_name],
                     csv_row,
                     foreign={"Brand": brand, "Person": person},
                 )
@@ -432,7 +436,7 @@ class Command(BaseCommand):
             # Import BrandVisual and corresponding BrandAsset
             print(">> BrandVisual <<")
             brand_visual = import_as_brandvisual(
-                CATEGORY__RULES[category.name],
+                CATEGORY__RULES[category.internal_name],
                 csv_row,
                 foreign={"Brand": brand},
             )
@@ -448,7 +452,7 @@ class Command(BaseCommand):
             # Import remaining BrandAsset
             print(">> Other BrandAsset <<")
             brand_assets = import_remaining_brandassets(
-                CATEGORY__RULES[category.name],
+                CATEGORY__RULES[category.internal_name],
                 csv_row,
                 foreign={"Brand": brand},
             )
@@ -461,7 +465,7 @@ class Command(BaseCommand):
             # Import BrandCategory
             print(">> BrandCategory <<")
             brand_category = import_as_brandcategory(
-                CATEGORY__RULES[category.name],
+                CATEGORY__RULES[category.internal_name],
                 csv_row,
                 foreign={"Brand": brand, "Category": category},
             )
@@ -477,7 +481,7 @@ class Command(BaseCommand):
             # Import BrandTag
             print(">> BrandTag <<")
             brand_tags = import_as_brandtag(
-                CATEGORY__RULES[category.name],
+                CATEGORY__RULES[category.internal_name],
                 csv_row,
                 foreign={"Brand": brand, "Category": category},
             )
