@@ -12,13 +12,13 @@ def home_page(request):
     return render(request, "index.html")
 
 
-def brand_listing(request):
-    selected_category = "Footwear"
+def brand_listing(request, selected_category):
+    category = Category.objects.get(internal_name=selected_category)
 
-    category = Category.objects.get(name=selected_category)
-
-    brands = Brand.objects.filter(brandcategory__category__name=category.name)
-    tags = Tag.objects.filter(category__name=category.name)
+    brands = Brand.objects.filter(
+        brandcategory__category__internal_name=category.internal_name
+    )
+    tags = Tag.objects.filter(category__internal_name=category.internal_name)
 
     category_tags = dict()
     for tag in tags:
@@ -30,6 +30,7 @@ def brand_listing(request):
         request,
         "brand-listing.html",
         {
+            "selected_category": category,
             "brands": brands,
             "category_tags": category_tags,
             "brand_tags": BRAND_TAGS,

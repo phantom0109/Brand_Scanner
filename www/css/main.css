@@ -211,7 +211,7 @@ input#search-bar {
     padding: 10px;
 }
 
-button.container-item {
+a.container-item {
     border: none;
     width: 150px;
     height: 40px;
@@ -570,7 +570,7 @@ button.filter-button {
         align-items: center;
     }
 
-    button.container-item {
+    a.container-item {
         border: none;
         width: 117px;
         height: 46px;
@@ -580,6 +580,7 @@ button.filter-button {
         margin: auto;
         display: flex;
         border: 1px solid #5A7989;
+        text-decoration: none;
 
         /* justify-content: center;
     align-items: center; */
@@ -588,17 +589,25 @@ button.filter-button {
     }
 
 
-    button.container-item:hover {
+    a.container-item:hover,
+    a.container-item-selected {
         background: #5A7989;
     }
 
-    button.container-item:hover .icon-footwear,
-    button.container-item:hover .icon-cloth-1,
-    button.container-item:hover .icon-handbags,
-    button.container-item:hover .icon-jewellery,
-    button.container-item:hover .icon-gifting,
-    button.container-item:hover .icon-health,
-    button.container-item:hover .icon-pet {
+    a.container-item:hover .icon-footwear,
+    a.container-item:hover .icon-cloth-1,
+    a.container-item:hover .icon-handbags,
+    a.container-item:hover .icon-jewellery,
+    a.container-item:hover .icon-gifting,
+    a.container-item:hover .icon-health,
+    a.container-item:hover .icon-pet,
+    a.container-item-selected .icon-footwear,
+    a.container-item-selected .icon-cloth-1,
+    a.container-item-selected .icon-handbags,
+    a.container-item-selected .icon-jewellery,
+    a.container-item-selected .icon-gifting,
+    a.container-item-selected .icon-health,
+    a.container-item-selected .icon-pet {
         color: #FFFFFF;
     }
 
@@ -614,7 +623,8 @@ button.filter-button {
     }
 
 
-    button.container-item:hover .label {
+    a.container-item:hover .label,
+    a.container-item-selected .label {
         color: #FFFFFF;
     }
 
@@ -674,7 +684,7 @@ button.filter-button {
         align-items: center;
     }
 
-    button.container-item {
+    a.container-item {
         margin-left: 0px;
     }
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-{% include 'brand-categories.html' %}
+{% include 'brand-categories.html' with category=selected_category %}
 <div class="flex justify-content-space-evenly align-center margin-top-12 margin-bottom-30 hide-on-desktop">
     <a class="go-back">Back</a>
     <div class="flex">
