@@ -71,3 +71,8 @@ def brand_listing(request, selected_category):
             "brand_tags": BRAND_TAGS,
         },
     )
+
+
+def brand_detail(request, brand_id):
+    brand = get_object_or_404(Brand, id=brand_id)
+    return render(request, "brand-detail.html", {"brand": brand})
