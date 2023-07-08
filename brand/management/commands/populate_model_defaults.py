@@ -21,6 +21,7 @@ category__tags = {
                 "Full body wear",
                 "Innerwear",
                 "Maternity wear",
+                "Accessories",
             ],
             "identity": [
                 "Men",
@@ -38,6 +39,7 @@ category__tags = {
                 "Wedding",
                 "Beach",
             ],
+            "material": ["Natural", "Synthetic"],
         },
     },
     "footwear": {

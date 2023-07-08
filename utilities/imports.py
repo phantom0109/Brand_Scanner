@@ -70,6 +70,17 @@ def _model_adjusted_csv_src_value(
             csv_src_value = model_field_rules[model_field_name]["choices"][
                 csv_src_value
             ]
+        elif model_field_type in ["email"]:
+            csv_src_value = csv_src_value.lower()
+        elif model_field_type in ["url"]:
+            # Remove query params
+            csv_src_value = csv_src_value.split("?")[0]
+            # Ensure URL ends with '/'
+            csv_src_value = (
+                csv_src_value
+                if csv_src_value.endswith("/")
+                else csv_src_value + "/"
+            )
 
     return csv_src_value
 
@@ -178,7 +189,7 @@ def _import_as_model(model_name, model_rules, csv_row, foreign={}):
     for model_field_name in model_field_rules:
         model_field_type = model_field_rules[model_field_name]["type"]
 
-        if model_field_type in ["text", "enum", "number"]:
+        if model_field_type in ["text", "enum", "number", "email", "url"]:
             csv_src_col_name = model_field_rules[model_field_name].get(
                 "source", f"{SUPPLIED_TAG}.{model_name}.{model_field_name}"
             )

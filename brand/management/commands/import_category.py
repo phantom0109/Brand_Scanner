@@ -1,3 +1,6 @@
+import sys
+import time
+
 from django.core.management.base import BaseCommand
 
 from brand.models import (
@@ -24,7 +27,7 @@ from utilities.imports import (
 )
 from utilities.validators import is_csv
 
-FOOTWEAR_RULES = {
+SHARED_RULES = {
     "Brand": {
         "pre": {"must": ["name"]},
         "fields": {
@@ -32,7 +35,6 @@ FOOTWEAR_RULES = {
             "name": {
                 "type": "text",
                 "source": "Name of Brand",
-                "must": True,
             },
             "title": {
                 "type": "text",
@@ -101,7 +103,7 @@ FOOTWEAR_RULES = {
             },
             # Communication
             "website": {
-                "type": "text",
+                "type": "url",
                 "source": "Website",
                 "default": "https://thebrandscanner.in",
             },
@@ -111,16 +113,16 @@ FOOTWEAR_RULES = {
                 "default": "UNKNOWN",
             },
             "email_address": {
-                "type": "text",
+                "type": "email",
                 "source": "Email Id",
                 "default": "thebrandscanner@gmail.com",
             },
             "instagram_profile": {
-                "type": "text",
+                "type": "url",
                 "source": "Instagram url",
             },
             "facebook_profile": {
-                "type": "text",
+                "type": "url",
                 "source": "Facebook url",
             },
             # Labels
@@ -137,6 +139,7 @@ FOOTWEAR_RULES = {
                 "type": "enum",
                 "source": "Made in India",
                 "choices": {"Yes": True, "No": False},
+                "default": True,
             },
             "environment_friendly": {
                 "type": "multiple_choice",
@@ -162,6 +165,7 @@ FOOTWEAR_RULES = {
             "material": {
                 "type": "text",
                 "source": "Material Text",
+                "default": "",
             },
         },
     },
@@ -215,6 +219,7 @@ FOOTWEAR_RULES = {
             "background": {
                 "type": "text",
                 "source": "Background of Founder",
+                "default": "",
             },
         },
     },
@@ -329,7 +334,11 @@ FOOTWEAR_RULES = {
                     "He/ Him": "Men",
                     "She/ Her": "Women",
                 },
-                "Type": {"Heals": "Heels"},
+                "Type": {
+                    "Heals": "Heels",
+                    "Full Body Dress": "Full body wear",
+                    "Fabric": "Fabrics",
+                },
             },
         },
         "fields": {
@@ -339,28 +348,45 @@ FOOTWEAR_RULES = {
     },
 }
 
-
-CATEGORY__RULES = {"footwear": FOOTWEAR_RULES}
+CATEGORY__RULES = {
+    "clothing": SHARED_RULES,
+    "footwear": SHARED_RULES,
+}
 
 
 class Command(BaseCommand):
     help = "Imports food and health data"
 
     def add_arguments(self, parser):
+        parser.add_argument("--category", type=str)
         parser.add_argument("--csv", type=str)
+        parser.add_argument("--start", type=int, default=0)
+        parser.add_argument("--pause", type=int, default=0)
 
     def handle(self, *args, **options):
+        category_name = options["category"]
         csv_file_path = options["csv"]
+        start_idx = options["start"]
+        pause_secs = options["pause"]
 
         if not is_csv(csv_file_path):
             print(f"{csv_file_path} is not a CSV file.")
 
-        category = Category.objects.get_or_create(internal_name="footwear")[0]
+        category = Category.objects.get(internal_name=category_name)
         print(f"Category is {category}")
 
-        csv_rows = csv_to_dict_list(csv_file_path)[:3]
+        csv_rows = csv_to_dict_list(csv_file_path)
+        if start_idx >= 0 and start_idx < len(csv_rows):
+            csv_rows = csv_rows[start_idx:]
+        else:
+            print(
+                f"Incorrect start index. Must be between 0 and {len(csv_rows)}"
+            )
+            sys.exit(1)
+
         for idx, csv_row in enumerate(csv_rows):
-            print(f"\n==== Reading row entry at idx {idx} ====")
+            print(f"\n==== Reading row entry at idx {start_idx + idx} ====")
+            time.sleep(pause_secs)
 
             # Import Brand
             print(">> Brand <<")
