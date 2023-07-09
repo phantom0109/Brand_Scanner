@@ -1,8 +1,7 @@
 {% load static %}
 <div class="brands-container">
     <div class="brand-img">
-        <!-- TODO: change to media URL -->
-        <img src="{% static 'assets/allen_solly.png' %}" alt="{{brand.name}}">
+        <img src="{{ brand.brandvisual.get_cover_url }}" alt="{{brand.name}}">
     </div>
     <div class="brand-container">
         <div class="brand-name">

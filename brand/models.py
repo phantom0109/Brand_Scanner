@@ -277,6 +277,18 @@ class BrandVisual(models.Model):
         help_text="Select from existing image assets.",
     )
 
+    def get_logo_url(self):
+        url = ""
+        if self.logo is not None:
+            url = self.logo.get_absolute_url()
+        return url
+
+    def get_cover_url(self):
+        url = ""
+        if self.cover is not None:
+            url = self.cover.get_absolute_url()
+        return url
+
     def __str__(self):
         return f"Visuals for {self.brand.name}"
 
