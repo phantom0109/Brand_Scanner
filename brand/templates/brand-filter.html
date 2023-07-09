@@ -26,8 +26,8 @@
                     <div class="flex flex-column">
                         {% for option in category_tags|get:'identity' %}
                         <div class="flex">
-                            <input type="radio" id="identity-{{ forloop.counter }}" name="identity" value="{{ option }}">
-                            <label for="identity-{{ forloop.counter }}">{{ option|title }}</label> <br />
+                            <input type="radio" id="identity-{{ forloop.counter }}" name="identity" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                            <label for="identity-{{ forloop.counter }}">{{ option|get:'value'|title }}</label> <br />
                         </div>
                         {% endfor %}
                     </div>
@@ -46,24 +46,19 @@
                 </div>
                 <div>
                     Location <br />
-
+                    {% for option in brand_tags|get:'location' %}
                     <div class="flex">
-                        <input type="radio" id="option1" name="options" value="option1">
-                        <label for="option1">India</label> <br />
+                        <input type="radio" id="location-{{ forloop.counter }}" name="location" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                        <label for="location-{{ forloop.counter }}">{{ option|get:'display_name'|title }}</label> <br />
                     </div>
-
-                    <div class="flex">
-                        <input type="radio" id="option2" name="options" value="option2">
-                        <label for="option2">International</label><br />
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
         {% endif %}
 
         <!-- Price Range -->
-        {% if "pricing" in brand_tags %}
+        {% if "indicative_pricing" in brand_tags %}
         <div class="filter-option height-auto margin-bottom-16">
             <div class="flex flex-item">
                 <div class="width-30">
@@ -77,20 +72,13 @@
                     <div class="margin-bottom-8">
                         Price Range <br />
                     </div>
+                    {% for option in brand_tags|get:'indicative_pricing' %}
                     <label>
-                        <input type="checkbox" name="price" value="0-50">
-                        $0 - $50
+                        <input type="checkbox" name="indicative_pricing" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                        {{ option|get:'display_name'|title }}
                     </label>
                     <br>
-                    <label>
-                        <input type="checkbox" name="price" value="51-100">
-                        $51 - $100
-                    </label>
-                    <br>
-                    <label>
-                        <input type="checkbox" name="price" value="101-200">
-                        $101 - $200
-                    </label>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -112,8 +100,8 @@
                     </div>
                     {% for option in category_tags|get:'occasion' %}
                     <label>
-                        <input type="checkbox" name="occasion" value="{{ option }}">
-                        {{ option|title }}
+                        <input type="checkbox" name="occasion" value="{{ option|get:'value' }}" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                        {{ option|get:'value'|title }}
                     </label>
                     <br>
                     {% endfor %}
@@ -134,8 +122,8 @@
                     <div class="margin-right-10 margin-left-14 margin-bottom-12">
                         {% for option in category_tags|get:'design' %}
                         <label>
-                            <input type="checkbox" name="design" value="{{ option }}">
-                            {{ option|title }}
+                            <input type="checkbox" name="design" value="{{ option|get:'value' }}" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                            {{ option|get:'value'|title }}
                         </label>
                         <br>
                         {% endfor %}
@@ -157,8 +145,8 @@
                     <div class="margin-right-10 margin-left-14 margin-bottom-12">
                         {% for option in category_tags|get:'material' %}
                         <label>
-                            <input type="checkbox" name="material" value="{{ option }}">
-                            {{ option|title }}
+                            <input type="checkbox" name="material" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                            {{ option|get:'value'|title }}
                         </label>
                         <br>
                         {% endfor %}
@@ -180,8 +168,8 @@
                     <div class="margin-right-10 margin-left-14 margin-bottom-12">
                         {% for option in category_tags|get:'type' %}
                         <label>
-                            <input type="checkbox" name="type" value="{{ option }}">
-                            {{ option|title }}
+                            <input type="checkbox" name="type" value="{{ option|get:'value' }}" {% if option|get:'selected' %}checked{% endif %}>
+                            {{ option|get:'value'|title }}
                         </label>
                         <br>
                         {% endfor %}
