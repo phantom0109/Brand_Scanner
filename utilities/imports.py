@@ -1,4 +1,5 @@
 import base64
+import copy
 import io
 import os
 import shutil
@@ -33,12 +34,24 @@ SUPPLIED_TAG = "SUPPLIED"
 
 def _check_if_existing_brandasset(new_model: BrandAsset) -> bool:
     if new_model.asset is not None:
-        filename = new_model.asset.file.name.split(".")[0]
+        filename = (
+            os.path.basename(new_model.asset.url).split(".")[0].split("_")[0]
+        )
         return BrandAsset.objects.filter(asset__icontains=filename).exists()
     return False
 
 
+def _get_existing_brandasset(new_model: BrandAsset) -> BrandAsset:
+    if new_model.asset is not None:
+        filename = (
+            os.path.basename(new_model.asset.url).split(".")[0].split("_")[0]
+        )
+        return BrandAsset.objects.get(asset__icontains=filename)
+    return None
+
+
 CHECK_IF_EXISTING = {"BrandAsset": _check_if_existing_brandasset}
+GET_EXISTING = {"BrandAsset": _get_existing_brandasset}
 
 IGNORE_MODEL_ON_ERROR = {
     "BrandAsset": {"asset": ["This field cannot be blank."]}
@@ -91,7 +104,7 @@ def _download_image(image_url) -> bool:
 
     md5_name = str_to_md5(image_url)
     for ext in IMAGE_FILE_EXTENSIONS:
-        if os.path.exists(f"{md5_name}.{ext}"):
+        if os.path.exists(f"{IMAGE_DOWNLOAD_DIR}/{md5_name}.{ext}"):
             print("Image alredy exists. Skipping download.")
             return True
 
@@ -287,13 +300,22 @@ def _create_foreign_and_import_as_model(
                 else:
                     raise (e)
 
-            if not ignore_foreign_model and not CHECK_IF_EXISTING[
-                foreign_model_name
-            ](foreign_model):
+            if ignore_foreign_model:
+                continue
+
+            if not CHECK_IF_EXISTING[foreign_model_name](foreign_model):
                 foreign_model.save()
                 foreign[
                     f"{foreign_model_name}__{model_field_name}"
                 ] = foreign_model
+            else:
+                existing_foreign_model = GET_EXISTING[foreign_model_name](
+                    foreign_model
+                )
+                if existing_foreign_model is not None:
+                    foreign[
+                        f"{foreign_model_name}__{model_field_name}"
+                    ] = existing_foreign_model
 
     return _import_as_model(
         model_name, all_model_rules[model_name], csv_row, foreign
@@ -418,7 +440,8 @@ def import_remaining_brandassets(
     models = []
 
     for supply_rule in supply:
-        model_rules = all_model_rules["BrandAsset"]
+        # Do not edit the orignal rules dict
+        model_rules = copy.deepcopy(all_model_rules["BrandAsset"])
         for model_field_name, model_field_supply_rule in supply_rule.items():
             # Expecting only one model field supply rule
             # per model field name

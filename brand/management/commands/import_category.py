@@ -361,12 +361,14 @@ class Command(BaseCommand):
         parser.add_argument("--category", type=str)
         parser.add_argument("--csv", type=str)
         parser.add_argument("--start", type=int, default=0)
+        parser.add_argument("--count", type=int, default=0)
         parser.add_argument("--pause", type=int, default=0)
 
     def handle(self, *args, **options):
         category_name = options["category"]
         csv_file_path = options["csv"]
         start_idx = options["start"]
+        num_records = options["count"]
         pause_secs = options["pause"]
 
         if not is_csv(csv_file_path):
@@ -383,6 +385,8 @@ class Command(BaseCommand):
                 f"Incorrect start index. Must be between 0 and {len(csv_rows)}"
             )
             sys.exit(1)
+        if num_records > 0:
+            csv_rows = csv_rows[:num_records]
 
         for idx, csv_row in enumerate(csv_rows):
             print(f"\n==== Reading row entry at idx {start_idx + idx} ====")
