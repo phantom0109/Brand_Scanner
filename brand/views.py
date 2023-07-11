@@ -100,7 +100,6 @@ def brand_listing(request, selected_category):
     page_number = request.GET.get("page", 0)
     page = paginator.get_page(page_number)
 
-    print(brand_tags)
     return render(
         request,
         "brand-listing.html",

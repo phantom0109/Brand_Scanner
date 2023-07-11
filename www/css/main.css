@@ -419,6 +419,7 @@ button.filter-button {
     line-height: 24px;
     padding: 12px 40px;
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 .brand-star,

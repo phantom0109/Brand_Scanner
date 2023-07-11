@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>{% block title %}BrandScanner{% endblock %}</title>
+  <title>{% block title %}The Brand Scanner{% endblock %}</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,7 +18,7 @@
 <script src="https://kit.fontawesome.com/7f31184837.js" crossorigin="anonymous"></script>
 <body>
   <header>
-    <img class="logo" src="{% static 'img/logo.svg' %}" alt="Logo">
+    <a href="/"><img class="logo" src="{% static 'img/logo.svg' %}" alt="Logo"></a>
     <form class="search-container">
       <i class="icon-search white"></i>
       <input type="text" id="search-bar" placeholder="Search Brands or Experts ">
@@ -35,7 +35,7 @@
       <nav>
         <ul>
           <li><a href="#">Write Reviews</a></li>
-          <li><a href="#">Brands</a></li>
+          <li><a href="{% url 'brand:brand_listing_default' %}">Brands</a></li>
           <li><a href="#">Experts</a></li>
           <li><a href="#">Deal</a></li>
           <li><a href="#">Blog</a></li>
@@ -56,7 +56,7 @@
 
   </header>
   <div class="flex beta-strip justify-content-center align-center">
-    <div class="beta">We are in Beta stage, write suggestions if any, <u>here</u></div>
+    <div class="beta">We are in Beta stage, write suggestions if any, <u><a href="mailto:thebrandscanner@gmail.com">here</a></u>.</div>
   </div>
   {% block content %}{% endblock %}
   <!-- FOOTER -->
@@ -73,7 +73,7 @@
             Find trustworthy brands within your price range in no time.
           </div>
           <button class="width-90 margin-bottom-32 background-transparent border-white margin-top-8">
-            <div class="noto-sherif weight-600 size-20 line-height-28 white">Lets start now</div>
+            <a class="noto-sherif weight-600 size-20 line-height-28 white" href="{% url 'brand:brand_listing_default' %}">Let's start now</a>
           </button>
         </div>
 
@@ -139,7 +139,7 @@
       <div class="margin-top-48">
         <div class="privacy-policy margin-bottom-30">
           <input type="checkbox" id="privacyCheckbox">
-          <label class="white" for="privacyCheckbox">I agree to the <a href="privacy-policy.html">Privacy Policy</a></label><br>
+          <label class="white" for="privacyCheckbox">I agree to the <a href="#">Privacy Policy</a></label><br>
 
           <input type="checkbox" id="privacyCheckbox">
           <label class="white" for="privacyCheckbox">Subscribe for Updates from TBS</label><br>
@@ -159,10 +159,10 @@
         <img src="{% static 'assets/brand_logo.png' %}" alt="Logo">
       </div>
       <div class="switzer white weight-400 size-20 text-align-center margin-bottom-16">
-        The Brand Scanner.Ltd
+        The Brand Scanner
       </div>
-      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-16" href="#">representative@thebrandscanner.in</a>
-      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-64" href="#">+91 9833 71 0817</a>
+      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-16" href="mailto:thebrandscanner@gmail.com">thebrandscanner@gmail.com</a>
+      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-64" href="#">+91 98337 10817</a>
     </div>
 
 
@@ -178,7 +178,7 @@
       <div class="end margin-right-24">
         <a href="#">Experts</a>
         <a href="#">Deals</a>
-        <a href="#">Brands</a>
+        <a href="{% url 'brand:brand_listing_default' %}">Brands</a>
         <a href="#">Blog</a>
         <a href="#">Privacy</a>
         <a href="#">T&C</a>
@@ -199,7 +199,7 @@
       </div>
 
       <div class="light-blue-text roboto size-20 line-height-28 weight-500">
-        ©2023 brandscanner.in | The Brand Scanner | All Rights Reserved.
+        ©2023 thebrandscanner.in | The Brand Scanner | All Rights Reserved.
       </div>
     </div>
 
