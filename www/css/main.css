@@ -8,11 +8,54 @@
     --primary-header-color: #0F212A;
 }
 
+footer {
+    background-color: #0F212A;
+    padding: 20px;
+}
+
+a{
+    color: #1194D4;
+}
+
+.light-blue-text{
+    color: #1194D4;
+}
+
+.footer-container1{
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.start a,
+.end a {
+  display: block;
+  margin-bottom: 40px;
+  font-family: 'Switzer';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
 .container1{
     height: 70%;
     width: 100%;
     flex-direction: column;
 }
+
+
+.footer-h1{
+    color: #096C9D;
+    font-family: 'Noto Serif';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: left;
+}
+
 
 .container2{
     flex-direction: column;
@@ -71,6 +114,17 @@ header {
 .icon-search {
     position: absolute;
     left: 15px;
+}
+
+.email-box{
+    width: 80%;
+    margin-left: 10px;
+    border-radius: 30px;
+    border: 1px solid #FFFFFF;
+    height: 44px;
+    color: black;
+    background: #FFFFFF;
+    padding-left: 30px;
 }
 
 input#search-bar-white {
@@ -211,7 +265,7 @@ input#search-bar {
     padding: 10px;
 }
 
-a.container-item {
+button.container-item {
     border: none;
     width: 150px;
     height: 40px;
@@ -510,6 +564,27 @@ button.filter-button {
     mix-blend-mode: normal;
 }
 
+
+.max-width-300-adj, .max-width-485-adj{
+    max-width: auto;
+}
+
+.subscribe-container {
+    height: 56px;
+    width: 695px;
+    left: 0px;
+    top: 0px;
+    border-radius: 30px;
+}
+
+.margin-top-75-adj{
+    margin-top: 0px;
+}
+
+.margin-bottom-35-adj{
+    margin-bottom: 0px;
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {}
 
@@ -521,6 +596,29 @@ button.filter-button {
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
+
+    footer{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .max-width-485-adj{
+        max-width: 485px;
+    }
+
+    .max-width-300-adj{
+        max-width: 300px;
+    }
+
+    .margin-top-24-adj, .margin-bottom-16-adj{
+        /* margin-top: 0px; */
+        margin-bottom: 0px;
+    }
+
+    .footer-container1{
+        flex-direction: row;
+        justify-content: space-around;
+    }
 
     .hide-on-desktop {
         display: none;
@@ -570,7 +668,7 @@ button.filter-button {
         align-items: center;
     }
 
-    a.container-item {
+    button.container-item {
         border: none;
         width: 117px;
         height: 46px;
@@ -580,7 +678,6 @@ button.filter-button {
         margin: auto;
         display: flex;
         border: 1px solid #5A7989;
-        text-decoration: none;
 
         /* justify-content: center;
     align-items: center; */
@@ -589,25 +686,17 @@ button.filter-button {
     }
 
 
-    a.container-item:hover,
-    a.container-item-selected {
+    button.container-item:hover {
         background: #5A7989;
     }
 
-    a.container-item:hover .icon-footwear,
-    a.container-item:hover .icon-cloth-1,
-    a.container-item:hover .icon-handbags,
-    a.container-item:hover .icon-jewellery,
-    a.container-item:hover .icon-gifting,
-    a.container-item:hover .icon-health,
-    a.container-item:hover .icon-pet,
-    a.container-item-selected .icon-footwear,
-    a.container-item-selected .icon-cloth-1,
-    a.container-item-selected .icon-handbags,
-    a.container-item-selected .icon-jewellery,
-    a.container-item-selected .icon-gifting,
-    a.container-item-selected .icon-health,
-    a.container-item-selected .icon-pet {
+    button.container-item:hover .icon-footwear,
+    button.container-item:hover .icon-cloth-1,
+    button.container-item:hover .icon-handbags,
+    button.container-item:hover .icon-jewellery,
+    button.container-item:hover .icon-gifting,
+    button.container-item:hover .icon-health,
+    button.container-item:hover .icon-pet {
         color: #FFFFFF;
     }
 
@@ -623,8 +712,7 @@ button.filter-button {
     }
 
 
-    a.container-item:hover .label,
-    a.container-item-selected .label {
+    button.container-item:hover .label {
         color: #FFFFFF;
     }
 
@@ -634,6 +722,18 @@ button.filter-button {
         left: 0px;
         top: 0px;
         border-radius: 30px;
+    }
+
+    .subscribe-container {
+        width: 300px;
+    }
+
+    .margin-bottom-35-adj{
+        margin-bottom: 35px;
+    }
+
+    .margin-top-75-adj{
+        margin-top: 75px;
     }
 
     .intro-container1>.margin-bottom-66-pc{
@@ -684,7 +784,7 @@ button.filter-button {
         align-items: center;
     }
 
-    a.container-item {
+    button.container-item {
         margin-left: 0px;
     }
 

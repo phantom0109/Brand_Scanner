@@ -19,6 +19,15 @@
     flex-direction: row-reverse;
 }
 
+
+.margin-left-100{
+    margin-left: 100px;
+}
+
+.margin-left-25{
+    margin-left: 25px;
+}
+
 button{
     box-sizing: border-box;
     border-radius: 30px;
@@ -28,6 +37,10 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.margin-bottom-130{
+    margin-bottom: 130px;
 }
 
 .margin-top-48{
@@ -48,6 +61,10 @@ button.secondary{
 }
 
 
+.margin-bottom-44{
+    margin-bottom: 44px;
+}
+
 .dark-blue{
     color: var(--primary-color-blue);
 }
@@ -64,8 +81,28 @@ button.secondary{
     font-family: 'Switzer';
 }
 
+.height-32{
+    height: 32px;
+}
+
+.background-transparent{
+    background: transparent;
+}
+
+.border-white{
+    border: 1px solid white;
+}
+
 .line-height-28{
     line-height: 28px;
+}
+
+.justify-content-space-between{
+    justify-content: space-between;
+}
+
+.line-height-44{
+    line-height: 44px;
 }
 
 .h1{
@@ -100,6 +137,7 @@ button.secondary{
     line-height: 44px;
 }
 
+
 .size-32{
     font-size: 32px;
 }
@@ -108,6 +146,9 @@ button.secondary{
     margin-bottom:32px;
 }
 
+.max-width-webkit-fill{
+    max-width: -webkit-fill-available;
+}
 
 .margin-bottom-64{
     margin-bottom:64px;
@@ -264,6 +305,10 @@ input[type="checkbox"]:checked {
     margin-top: 24px;
 }
 
+.margin-top-75{
+    margin-top: 75px;
+}
+
 .margin-top-8{
     margin-top: 8px;
 }
@@ -340,6 +385,9 @@ input[type="checkbox"]:checked {
     margin-bottom: 16px;
 }
 
+.padding-20{
+    padding: 20px;
+}
 
 .margin-8{
     margin: 8px;
@@ -392,10 +440,10 @@ input[type="checkbox"]:checked {
     font-size: 18px;
 }
 
-
-.size-18{
-    font-size: 16px;
+.text-wrap-balance{
+    text-wrap: balance;
 }
+
 
 .font-color-greyish {
     color: #2E494B;

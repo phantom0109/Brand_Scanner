@@ -2,8 +2,9 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>{% block title %}BrandScanner{% endblock %}</title>
+  <title>{% block title %}BrandScanner{% endblock %}</title>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,50 +14,197 @@
 
 <!-- FONT -->
 <link rel="stylesheet" href="{% static 'fontello/css/fontello.css' %}" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-EXAMPLE_HASH" crossorigin="anonymous" />
+<script src="https://kit.fontawesome.com/7f31184837.js" crossorigin="anonymous"></script>
 <body>
-<header>
+  <header>
     <img class="logo" src="{% static 'img/logo.svg' %}" alt="Logo">
     <form class="search-container">
-        <i class="icon-search white"></i>
-        <input type="text" id="search-bar" placeholder="Search Brands or Experts ">
-        <a href="#"></a>
+      <i class="icon-search white"></i>
+      <input type="text" id="search-bar" placeholder="Search Brands or Experts ">
+      <a href="#"></a>
     </form>
-    <svg class="ham hamRotate ham4 hide-on-desktop" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-        <path
-              class="line top"
-              d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
-        <path
-              class="line middle"
-              d="m 70,50 h -40" />
-        <path
-              class="line bottom"
-              d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
-      </svg>
-      <div class="hide-on-mobile">
-        <nav>
-            <ul>
-              <li><a href="#">Write Reviews</a></li>
-              <li><a href="#">Brands</a></li>
-              <li><a href="#">Experts</a></li>
-              <li><a href="#">Deal</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Us</a></li>
-            </ul>
-          </nav>
+    <svg class="ham hamRotate ham4 hide-on-desktop" viewBox="0 0 100 100" width="80"
+      onclick="this.classList.toggle('active')">
+      <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+      <path class="line middle" d="m 70,50 h -40" />
+      <path class="line bottom"
+        d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+    </svg>
+    <div class="hide-on-mobile">
+      <nav>
+        <ul>
+          <li><a href="#">Write Reviews</a></li>
+          <li><a href="#">Brands</a></li>
+          <li><a href="#">Experts</a></li>
+          <li><a href="#">Deal</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    <button class="btn-secondary margin-right-13 hide-on-mobile">
+      <div class="container-sm">
+        Log in
       </div>
-      <button class="btn-secondary margin-right-13 hide-on-mobile">
-        <div class="container-sm">
-            Log in
-        </div>
-      </button>
-      <button class="btn-primary hide-on-mobile">
-        <div class="container-sm">
-            Join Us
-        </div>
-      </button>
+    </button>
+    <button class="btn-primary hide-on-mobile">
+      <div class="container-sm">
+        Join Us
+      </div>
+    </button>
 
-</header>
-{% block content %}{% endblock %}
+  </header>
+  <div class="flex beta-strip justify-content-center align-center">
+    <div class="beta">We are in Beta stage, write suggestions if any, <u>here</u></div>
+  </div>
+  {% block content %}{% endblock %}
+  <!-- FOOTER -->
+  <footer>
+      <div class="flex footer-container1">
+        <div class="margin-bottom-16-adj margin-top-24 margin-top-75">
+          <div>
+            <i style="color:#096C9D" class="width-30 size-32 icon-unionmagnify"></i>
+          </div>
+          <div class="footer-h1">
+            Explore Brands that suit you best
+          </div>
+          <div class="roboto white size-18 weight-500 line-height-28">
+            Find trustworthy brands within your price range in no time.
+          </div>
+          <button class="width-90 margin-bottom-32 background-transparent border-white margin-top-8">
+            <div class="noto-sherif weight-600 size-20 line-height-28 white">Lets start now</div>
+          </button>
+        </div>
+
+        <div class="margin-bottom-16 margin-top-75">
+          <div>
+            <i style="color:#096C9D" class="width-30 size-32 icon-brand-tag"></i>
+          </div>
+          <div class="footer-h1">
+            Get your brands enlisted with us
+          </div>
+          <div class="roboto white size-18 weight-500 line-height-28">
+            Find trustworthy brands within your price range in no time.
+          </div>
+          <button class="width-90 margin-bottom-32 background-transparent border-white margin-top-8">
+            <div class="noto-sherif weight-600 size-20 line-height-28 white">Sign Up Now</div>
+          </button>
+        </div>
+
+        <div class="margin-bottom-16 margin-top-75">
+          <div>
+            <i style="color:#096C9D;" class="width-30 size-32 icon-brand-tag"></i>
+          </div>
+          <div class="footer-h1">
+            Showcase your work and get hired
+          </div>
+          <div class="roboto white size-18 weight-500 line-height-28">
+            Find trustworthy brands within your price range in no time.
+          </div>
+          <button class="width-90 margin-bottom-32 background-transparent border-white margin-top-8">
+            <div class="noto-sherif weight-600 size-20 line-height-28 white">Sign Up Now</div>
+          </button>
+        </div>
+
+
+        <div class="margin-bottom-16 margin-top-75">
+          <div>
+            <i style="color:#096C9D;" class="width-30 size-32 icon-brand-tag"></i>
+          </div>
+          <div class="footer-h1">
+            Deals that are value for your money
+          </div>
+          <div class="roboto white size-18 weight-500 line-height-28 margin-bottom-35-adj">
+            Sales and Events that are worth checking.
+          </div>
+          <button class="width-90 margin-bottom-32 background-transparent border-white margin-top-8">
+            <div class="noto-sherif weight-600 size-20 line-height-28 white">Check the Deals</div>
+          </button>
+        </div>
+      </div>
+
+    <hr class="width-100">
+
+    <div class="flex footer-container1 padding-20">
+    <div class="margin-bottom-16 margin-top-75 flex-1 max-width-300-adj">
+      <div class="white text-align-center size-32 weight-700 line-height-44 noto-sherif">
+        Subscribe to Weekly News from us
+      </div>
+
+      <div class="subscribe-container margin-top-32">
+        <input class="email-box" type="text" placeholder="Enter your email id">
+      </div>
+
+      <div class="margin-top-48">
+        <div class="privacy-policy margin-bottom-30">
+          <input type="checkbox" id="privacyCheckbox">
+          <label class="white" for="privacyCheckbox">I agree to the <a href="privacy-policy.html">Privacy Policy</a></label><br>
+
+          <input type="checkbox" id="privacyCheckbox">
+          <label class="white" for="privacyCheckbox">Subscribe for Updates from TBS</label><br>
+
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12 margin-bottom-130">
+          <button class="primary width-90 margin-bottom-16">
+              <div class="noto-sherif weight-600 size-20 line-height-28 white">Submit</div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flex flex-column flex-1 margin-top-75-adj">
+      <div class="flex justify-content-center align-center margin-bottom-44">
+        <img src="{% static 'assets/brand_logo.png' %}" alt="Logo">
+      </div>
+      <div class="switzer white weight-400 size-20 text-align-center margin-bottom-16">
+        The Brand Scanner.Ltd
+      </div>
+      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-16" href="#">representative@thebrandscanner.in</a>
+      <a class="flex justify-content-center roboto size-20 weight-500 line-height-28 text-align-center margin-bottom-64" href="#">+91 9833 71 0817</a>
+    </div>
+
+
+    <div class="flex justify-content-space-between flex-1 margin-top-75-adj">
+      <div class="start">
+        <a href="#">Contact Us</a>
+        <a href="#">Sign-up (Members)</a>
+        <a href="#">Sign-up (Brands)</a>
+        <a href="#">Guide to Website</a>
+        <a href="#">FAQs & Help</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="end margin-right-24">
+        <a href="#">Experts</a>
+        <a href="#">Deals</a>
+        <a href="#">Brands</a>
+        <a href="#">Blog</a>
+        <a href="#">Privacy</a>
+        <a href="#">T&C</a>
+      </div>
+    </div>
+
+
+    </div>
+
+    <hr class="margin-bottom-30">
+
+    <div class="flex footer-container1">
+      <div class="roboto size-20 weight-500 line-height-28 light-blue-text margin-bottom-16">
+        Follow Us on
+        <a href="https://www.instagram.com/your_username" target="_blank">
+          <i class="line-height-28 fa-brands fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="light-blue-text roboto size-20 line-height-28 weight-500">
+        ©2023 brandscanner.in | The Brand Scanner | All Rights Reserved.
+      </div>
+    </div>
+
+  </footer>
+
 </body>
+
 </html>
