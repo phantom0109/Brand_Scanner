@@ -1,6 +1,918 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-{% include 'brand-categories.html' with category=selected_category %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- bootstrap icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- External CSS  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/brand-details.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/utilities.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/brand-categories2.css' %}" />
+</head>
+
+<body>
+    <!-- category list -->
+        {% include 'brand-categories2.html' with category=selected_category %}
+
+    <!-- main section  -->
+    <!-- upper section  -->
+    <!-- <section> -->
+    <div class="top-header">
+        <div class="container d-flex">
+            <div class="col-md-7 brand right">AllenSolly</div>
+            <div class="col-md-5 ps-sm-3 link right">Visit
+                <a href="#" style="text-decoration: none; color: white;">
+                    www. allensolly .com
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- </section> -->
+    <!-- top section  -->
+    <section class="container">
+        <div class="row">
+            <p class="font-16 result">
+                < Back/ Search Results/ 24 out of 100 </p>
+                    <!-- left top  -->
+                    <div class="col-lg-6">
+                        <div>
+                            <img src="{% static 'media/img-1.png' %}" width="100%" alt="">
+                        </div>
+                        <div class="mt-4 ">
+                            <img src="{% static 'media/Made-in-India.png' %}" height="25px" alt="">
+                            <button class="btn not-recommend-btn mx-2">Do Not Recommend &nbsp; &nbsp;
+                                <i class="bi bi-emoji-frown"></i>
+                            </button>
+                            <button class="btn recommend-btn"> Recommend Brand &nbsp; &nbsp;
+                                <i class="bi bi-heart-fill" style="color: #E16300;"></i>
+                            </button>
+
+                        </div>
+                        <br>
+                        <div class="btn red-btn">Visit AllenSolly.com</div>
+                    </div>
+                    <!-- <div class="col-md-1"></div> -->
+                    <!-- right top  -->
+                    <div class="col-lg-6 dash-border">
+                        <div class="row">
+                            <div class="d-flex justify-content-end mt-1">
+                                <button class="btn not-recommend-btn">Share Brand
+                                    <img src=" {% static 'media/icon/arrow.svg' %}" width="25px" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -15px;">
+                            <div class="d-flex">
+                                <div class="me-4"><img src="{% static 'media/brand-round.png' %}" height="40px"
+                                        alt="brand">
+                                </div>
+                                <div>
+                                    <h3><b class="font-40">AllenSolly</b> <sup><img
+                                                src="{% static 'media/icon/right.svg' %}" alt=""></sup>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <br> -->
+                        <div class="row mt-1">
+                            <p class="font-16">We bring brand details that helps you make wise decisions, bring brand
+                                details.
+                            </p>
+                        </div>
+                        <!-- Ratings  -->
+                        <div class="row border-sub">
+                            <div class="col-4">
+                                <div>
+                                    <b class="font-28">Ratings</b>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="{% static 'media/rating.png' %}" height="30px" alt="">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">The Brand Scanner <br>
+                                    <span class="font-20"> 4.5 ★★★★
+                                    </span>
+                                </p>
+                                <p class="color-red font-16">Our Rating Guide</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Member Rating <br>
+                                    <span class="font-20"> 4.5 ★★★★
+                                    </span>
+                                </p>
+                                <p class="color-red font-16">1.2K Reviews</p>
+                            </div>
+                        </div>
+
+                        <!-- Company details  -->
+                        <div class="row border-sub">
+                            <div class="col-4">
+                                <div>
+                                    <b class="font-28">Company Details</b>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="{% static 'media/company.png' %}" height="30px" alt="">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Founded in <br>
+                                    <b class="font-20"> Jan 2019, 3+ years
+                                    </b>
+                                </p>
+                                <p class="font-14">Materials <br>
+                                    <b class="font-20"> Cotton, Silk,...</b> <span class="color-red font-20">More</span>
+
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Founded in <br>
+                                    <b class="font-20"> Mid-Sized
+                                    </b>
+                                </p>
+                                <p class="font-14">Number of Employees <br>
+                                    <b class="font-20"> 2000
+                                    </b>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sales  -->
+                        <div class="row border-sub">
+                            <div class="col-4">
+                                <div>
+                                    <b class="font-28">Sales</b>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="{% static 'media/sales.png' %}" height="30px" alt="">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Delivery Time <br>
+                                    <b class="font-20">
+                                        7-10 Days <img src="{% static 'media/icon/info.svg' %}" alt="">
+                                    </b>
+                                </p>
+                                <p class="font-14">Refunds / Returns <br>
+                                    <b class="font-20">
+                                        7 Days Exchange
+                                    </b>
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Shipping Cost <br>
+                                    <b class="font-20"> ₹200 - ₹1000
+                                    </b>
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <!-- Contact details   -->
+                        <div class="row border-sub">
+                            <div class="col-4">
+                                <div>
+                                    <b class="font-28">Contact Details</b>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="{% static 'media/contact.png' %}" height="30px" alt="">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Phone Number <br>
+                                    <b class="font-20"> +91 9004567899
+                                    </b>
+                                </p>
+                                <p class="font-14">Email Id <br>
+                                    <b class="font-20"> mail@ allensolly .com
+                                    </b>
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <p class="font-14">Website <br>
+                                    <b class="font-20"> www. allensolly .com
+                                    </b>
+                                </p>
+                                <!-- social  -->
+                                <div>
+                                    <a href="#"><img src="{% static 'media/icon/twitter.png' %}" height="35px"
+                                            alt=""></a>
+                                    <a href="#"><img src="{% static 'media/icon/instagram.svg' %}" alt=""></a>
+                                    <a href="#"><img src="{% static 'media/icon/fb.svg' %}" alt=""></a>
+                                    <a href="#"><img src="{% static 'media/icon/linkedin.svg' %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- views  -->
+                        <div class="row summary">
+                            <div class="col-4">
+                                <div>
+                                    <p style="color: #224DDC;">
+                                        <img src="{% static 'media/icon/Views.svg' %}" height="35px" alt="">
+                                        12K Views
+                                    </p>
+                                </div>
+                                <div>
+                                    <p style="color: #C51051;">
+                                        <img src="{% static 'media/icon/Plus-Size.svg' %}" height="35px" alt="">
+                                        Plus Size Available
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div>
+                                    <p style="color: #01753A;">
+                                        <img src="{% static 'media/icon/Sustainable.svg' %}" height="35px" alt="">
+                                        Sustainable
+                                    </p>
+                                </div>
+                                <div>
+                                    <p style="color: #14484B;">
+                                        <img src="{% static 'media/icon/Budget-Friendly.svg' %}" height="35px" alt="">
+                                        Budget Friendly
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div>
+                                    <p style="color: #C51051;">
+                                        <img src="{% static 'media/icon/Customisable.svg' %}" height="35px" alt="">
+                                        Customisable
+                                    </p>
+                                </div>
+                                <div>
+                                    <p style="color: #224DDC;">
+                                        <img src="{% static 'media/icon/Handcrafted.svg' %}" height="35px" alt="">
+                                        Handcrafted
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </section>
+
+    <!-- sustaiability =============================== -->
+
+    <section class="container">
+        <div class="row sustainability">
+            <div class="col-lg-6">
+                <p class="header">
+                    At AllenSolly We believe in Sustainability..
+                </p>
+                <p class="para">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is
+                    simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="banner text-center">
+                    <br><br><br><br>
+                    add Banner video
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder ======================================== -->
+    <section class="container">
+        <div class="founder">
+            <div class="row">
+                <p class="header">
+                    AllenSolly Founders
+                </p>
+            </div>
+            <div class="row border-style p-4">
+                <!-- founder-1  -->
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="{% static 'media/hero-1.png' %}" height="60px" alt="hero">
+                        </div>
+                        <div class="col-10 ps-3">
+                            <p class="name mt-2">Radha Gohil</p>
+                            <p class="title">Co-Founder, AllenSolly</p>
+                            <p class="para">
+                                Radha Gohil, an IIM graduate and an engineer by qualification but a designer, a dreamer
+                                and
+                                a doer by passion. Radha dreamt to style up the nation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- founder-2  -->
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="{% static 'media/hero-2.png' %}" height="60px" alt="hero">
+                        </div>
+                        <div class="col-10 ps-3">
+                            <p class="name mt-2">Dev Raj</p>
+                            <p class="title">Co-Founder, AllenSolly</p>
+                            <p class="para">
+                                Dev Raj, an IIM graduate and an engineer by qualification but a designer, a dreamer and
+                                a doer by passion. Dev dreamt to style up the nation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- founder-3  -->
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="{% static 'media/hero-1.png' %}" height="60px" alt="hero">
+                        </div>
+                        <div class="col-10 ps-3">
+                            <p class="name mt-2">Radha Gohil</p>
+                            <p class="title">Co-Founder, AllenSolly</p>
+                            <p class="para">
+                                Radha Gohil, an IIM graduate and an engineer by qualification but a designer, a dreamer
+                                and
+                                a doer by passion. Radha dreamt to style up the nation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Review =================================== -->
+    <section class="container">
+        <div class="review">
+            <!-- <form action="" class="form"> -->
+            <div class="row">
+                <p class="header">
+                    Write a Review! Rewards Points are waiting for you!
+                </p>
+            </div>
+            <!-- form  -->
+            <div class="row">
+
+                <div class="col-md-9 border-style me-auto">
+                    <form action="">
+                        <!-- <div class="col-md-12"></div> -->
+                        <div class="row">
+                            <p class="header-small">
+                                Step 1 - Brand Details
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Brand Name*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="E.g. AllenSolly">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Brand URL*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="www.allensolly.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Select what describes your opinion best</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="E.g. AllenSolly">
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-2"></div> -->
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Brand URL*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="www.allensolly.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-4">
+                                <!-- <label for="" class="label-name">Enter Brand URL*</label> -->
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <textarea name="" id="" placeholder="Write your message here"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-4 ">
+                                <button class="btn ratings-btn mx-2 ">Select An Avatar &nbsp; &nbsp; &nbsp;&nbsp;
+                                    <img src="{% static 'media/icon/avatar.svg' %}" width="25px" alt="avatar">
+                                </button>
+                                <button class="btn ratings-btn mx-2">Add Pictures &nbsp; &nbsp; &nbsp;&nbsp;
+                                    <img src="{% static 'media/icon/camera.svg' %}" width="25px" alt="avatar">
+                                </button>
+                                <button class="btn ratings-btn mx-2">Leave a Rating &nbsp; &nbsp; &nbsp;&nbsp;
+                                    <img src="{% static 'media/icon/star.svg' %}" width="25px" alt="avatar">
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr>
+                        </div>
+
+                        <div class="row mt-4">
+                            <p class="header-small">
+                                Step 2 - Provide Us With Your Details.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Your First Name*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="E.g. Rita">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Your Last Name*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="E.g. Malhotra">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">Enter Your Email Address</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 p-4">
+                                <label for="" class="label-name">What did you buy?*</label>
+                                <div>
+                                    <div class="icon">
+                                        <img class="" src="{% static 'media/icon/Enter.svg' %}" alt="">
+                                    </div>
+                                    <input type="text" class="" placeholder="E.g. Kurta, Homeware">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 p-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Subscribe to more Updates from The BrandScanner
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 p-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        I have read the Privacy Policy
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="btn red-btn">Submit Your Review</div>
+                        </div>
+                    </form>
+
+                </div>
+                <!-- <div class="col-md-1 "></div> -->
+                <div class="col-md-2 border-style text-center ms-auto">
+                    <br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br>
+                    <div class="mt-auto">
+                        Add Banner video
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+        </div>
+    </section>
+
+    <!-- More==================================== -->
+    <section class="container">
+        <div class="more">
+            <div class="row">
+                <p class="header">More from Allen Solly</p>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <!-- product-1  -->
+                <div class="col-md-3 card-custom">
+                    <p class="para">Celebrity Endorsements</p>
+                    <div>
+                        <img src="{% static 'media/product-1.png' %}" width="100%" alt="img">
+                    </div>
+                    <div>
+                        <div class="title"> Koyna Mittal</div>
+                        <div class="sub-title">Kurta Collection - Mar 2023</div>
+                    </div>
+                    <div class="row p-3 explore-btn">
+                        <div class="btn red-btn">Explore Designers</div>
+                    </div>
+                </div>
+                <!-- product-2  -->
+                <div class="col-md-3 card-custom">
+                    <p class="para">Best Sellers</p>
+                    <div>
+                        <img src="{% static 'media/product-2.png' %}" width="100%" alt="img">
+                    </div>
+                    <div>
+                        <div class="title"> 50% off Deals</div>
+                        <div class="sub-title">Kurta Collection - Mar 2023</div>
+                    </div>
+                    <div class="row p-3 explore-btn">
+                        <div class="btn red-btn">Explore Designers</div>
+                    </div>
+                </div>
+                <!-- product-3  -->
+                <div class="col-md-3 card-custom">
+                    <p class="para">Deals</p>
+                    <div>
+                        <img src="{% static 'media/product-3.png' %}" width="100%" alt="img">
+                    </div>
+                    <div>
+                        <div class="title"> Koyna Mittal</div>
+                        <div class="sub-title">Kurta Collection - Mar 2023</div>
+                    </div>
+                    <div class="row p-3 explore-btn">
+                        <div class="btn red-btn">Explore Designers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More reviews =============================== -->
+    <section class="container">
+        <div class="more-reviews">
+            <div class="row">
+                <p class="header">Reviews for Myntra</p>
+                <p class="sub-para">4 stars from 1200 Reviews</p>
+            </div>
+            <!-- comment-1  -->
+            <div class="row border-custom2">
+                <div class="col-md-2">
+                    <img src="{% static 'media/review-1.png' %}" alt="">
+                    <p class="person-name">Chandni Sehgal </p>
+                </div>
+                <div class="col-md-8">
+                    <div>
+                        <p class="title">
+                            4
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 26.svg' %}" height="25px" alt="">
+                            &nbsp;
+                            I loved the product!
+                        </p>
+                    </div>
+                    <div>
+                        <p class="desc">
+                            Gosriki Its not kalini kurta set its gosriki brand please be honest with all detail It is
+                            good kurta set little bit finishing problem It will good for summer cause it is little thin
+                            fabric but over all niche color pretty piece
+                        </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/like.png' %}" height="25px" alt=""> &nbsp;
+                                123 Found Helpful
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/unlike.png' %}" height="25px" alt=""> &nbsp;
+                                32 Not Helpful
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control p-3" placeholder="Reply">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-done p-3 "> Done </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- comment-2  -->
+            <div class="row border-custom2 mt-2">
+                <div class="col-md-2">
+                    <img src="{% static 'media/review-1.png' %}" alt="">
+                    <p class="person-name">Chandni Sehgal </p>
+                </div>
+                <div class="col-md-8">
+                    <div>
+                        <p class="title">
+                            4
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 26.svg' %}" height="25px" alt="">
+                            &nbsp;
+                            I loved the product!
+                        </p>
+                    </div>
+                    <div>
+                        <p class="desc">
+                            Gosriki Its not kalini kurta set its gosriki brand please be honest with all detail It is
+                            good kurta set little bit finishing problem It will good for summer cause it is little thin
+                            fabric but over all niche color pretty piece
+                        </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/like.png' %}" height="25px" alt=""> &nbsp;
+                                123 Found Helpful
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/unlike.png' %}" height="25px" alt=""> &nbsp;
+                                32 Not Helpful
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control p-3" placeholder="Reply">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-done p-3 "> Done </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- comment-3  -->
+            <div class="row border-custom2 mt-2">
+                <div class="col-md-2">
+                    <img src="{% static 'media/review-1.png' %}" alt="">
+                    <p class="person-name">Chandni Sehgal </p>
+                </div>
+                <div class="col-md-8">
+                    <div>
+                        <p class="title">
+                            4
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 27.svg' %}" height="25px" alt="">
+                            <img src="{% static 'media/icon/Star 26.svg' %}" height="25px" alt="">
+                            &nbsp;
+                            I loved the product!
+                        </p>
+                    </div>
+                    <div>
+                        <p class="desc">
+                            Gosriki Its not kalini kurta set its gosriki brand please be honest with all detail It is
+                            good kurta set little bit finishing problem It will good for summer cause it is little thin
+                            fabric but over all niche color pretty piece
+                        </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                        <img src="{% static 'media/review-img.png' %}" width="100px" alt="">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/like.png' %}" height="25px" alt=""> &nbsp;
+                                123 Found Helpful
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="reaction">
+                                <img src="{% static 'media/icon/unlike.png' %}" height="25px" alt=""> &nbsp;
+                                32 Not Helpful
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control p-3" placeholder="Reply">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-done p-3 "> Done </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="text-center">
+                    1&nbsp;
+                    2&nbsp;
+                    3&nbsp;
+                    4&nbsp;
+                    <button class="btn next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add ======================================================================== -->
+    <section class="container">
+        <div class="adds text-center">
+            <br><br><br>
+            Ads
+        </div>
+    </section>
+
+    <!-- =============================================================================== -->
+    <!-- brand cover  -->
+    <section class="brand-cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'media/cover.png' %}" alt="">
+                </div>
+                <div class="col-md-5 right-sec">
+                    <div>
+                        <button class="btn for-brand">For Brands</button>
+                    </div>
+                    <div>
+                        <p class="title mt-2">Want to own up your brand page?
+                            Get your brand listed with us!
+                        </p>
+                    </div>
+                    <div>
+                        <p class="desc mb-2">
+                            Get more reach to right audience at the right time for better sales. Enable the to-be buyers
+                            to trust you more by being transparent about your business terms.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="btn red-btn my-3">Fill in some quick questions</div>
+                    </div>
+                    <div>
+                        <p class="one-minute">
+                            This takes less than 1 minute.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container under-cover mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Back to Search Results (4)</p>
+            </div>
+            <div class="col-md-6 right">
+                <p>Scroll Up</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog ============================================================== -->
+    <section class="container">
+        <div class="blog">
+            <div class="row text-center">
+                <div>
+                    <img src="{% static 'media/icon/group.png' %}" height="40px" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h1 class="header">Read More Purposeful Content</h1>
+                </div>
+                <p class="sub-header">Every week, we publish only one well researched and must-know article</p>
+            </div>
+            <div class="row mt-4">
+                <!-- blog-1  -->
+                <div class="col-md-3">
+                    <div>
+                        <img src="{% static 'media/blog-2.png' %}" width="100%" alt="">
+                    </div>
+                    <div>
+                        <p class="title mt-3">
+                            The title of the Blog Post will be clickable
+                        </p>
+                    </div>
+                    <div>
+                        <div class="btn read-btn">Read Post</div>
+                    </div>
+                </div>
+                <!-- blog-2  -->
+                <div class="col-md-3">
+                    <div>
+                        <img src="{% static 'media/blog-1.png' %}" width="100%" alt="">
+                    </div>
+                    <div>
+                        <p class="title mt-3">
+                            The title of the Blog Post will be clickable
+                        </p>
+                    </div>
+                    <div>
+                        <div class="btn read-btn">Read Post</div>
+                    </div>
+                </div>
+                <!-- right  -->
+                <div class="col-md-5 ms-auto">
+                    <div class="row">
+                        <h2 class="header-right">
+                            Download an E-Book on Fashion 'Must-Haves' this season
+                        </h2>
+                        <p class="para-right">
+                            Provide us with an email id we can reach out to you with a downloadable link of the E-book.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <input type="text" class="right-input" placeholder="Enter your email id">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Subscribe to more Updates from The BrandScanner
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Subscribe to more Updates from The BrandScanner
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="btn red-btn">Submit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- bootstrap  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
+
 {% endblock %}
