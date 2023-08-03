@@ -117,14 +117,16 @@ header {
 }
 
 .email-box{
-    width: 80%;
-    margin-left: 10px;
+    width: 100%;
     border-radius: 30px;
     border: 1px solid #FFFFFF;
     height: 44px;
     color: black;
     background: #FFFFFF;
-    padding-left: 30px;
+}
+
+.privacy-policy{
+    padding-left : 20px;
 }
 
 input#search-bar-white {
@@ -461,6 +463,11 @@ button.filter-button {
     display: none;
 }
 
+.show-on-mobile {
+    position: absolute;
+    right: 10px;
+}
+
 .filter-container-margin {
     margin-top: 0px;
     margin-left: 0px;
@@ -572,7 +579,7 @@ button.filter-button {
 
 .subscribe-container {
     height: 56px;
-    width: 695px;
+    /* width: 695px; */
     left: 0px;
     top: 0px;
     border-radius: 30px;
@@ -590,13 +597,17 @@ button.filter-button {
 @media (min-width: 400px) {}
 
 /* Larger than phablet */
-@media (min-width: 550px) {}
+@media (min-width: 767px) {
+
+}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 992px) {
+    
+}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
 
     footer{
         padding-left: 20px;

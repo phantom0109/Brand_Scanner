@@ -21,6 +21,9 @@ mysql -u root -p --default-character-set=utf8mb4
 CREATE DATABASE brandscanner_db CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 CREATE DATABASE test_brandscanner_db CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
+CREATE DATABASE brandscanner_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_cire;
+CREATE DATABASE test_brandscanner_db CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
 # NOTE: if using Maria DB, use collation utf8mb4_unicode_520_ci instead of utf8mb4_0900_ai_ci as the latter may not be available in Maria DB.
 
 # Create MySQL users
