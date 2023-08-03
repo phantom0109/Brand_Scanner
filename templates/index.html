@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-lg light-orange flex justify-content-center align-center container1">
+    <div class="flex flex-row margin-top-66">
+        <img class="height-fit-content" src="{% static 'assets/home_page_1.png' %}" alt="Home page 1">
+        <img class="height-fit-content" src="{% static 'assets/home_page_2.png' %}" alt="Home page 2">
+    </div>
+    <div class="homepage-start">
+        <button class="primary width-fit-content hello-shoppers" style="background:#FFAA68">
+            <div class="roboto weight-500" style="color: #E16300;">Hello Shoppers!</div>
+        </button>
+        <div class="h1 width-357 text-align-pc-adjusted" style="color: #0F212A;">
+            Find Trustworthy Brands, Before You Shop Online.
+        </div>
+        <div class="roboto weight-500 dark-blue size-20 line-height-28 margin-bottom-4">
+            Within your price range and in no time.
+        </div>
+
+        <!-- search block -->
+        <form class="search-category desktop-width margin-bottom-16">
+            <i class="icon-search"></i>
+            <input type="text" id="search-bar-white" placeholder="Search Brands or Experts">
+            <a href="#"></a>
+        </form>
+
+        <div class="roboto weight-500 dark-blue size-20 line-height-28">
+            Or Let us help you in 30 Secs
+        </div>
+        <button class="primary width-90 margin-bottom-32">
+            <a class="noto-sherif weight-600 size-20 line-height-28 white" href="{% url 'brand:brand_listing_default' %}">Let's start now</a>
+        </button>
+    </div>
+
+</div>
+<div class="noto-sherif weight-700 size-32 line-height-44 flex justify-content-center align-center">
+    What do we do?
+</div>
+<div class="roboto weight-500 size-18 text-align-center line-height-28 margin-right-10 margin-left-10">
+    Find trustworthy brands within your price range in no time. Find trustworthy brands within your price range
+    in no time.
+</div>
+
+<div class="flex container2 justify-content-center">
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="flex justify-content-center">
+            <img class="height-fit-content" src="{% static 'assets/for_shoppers.png' %}" alt="Home page 3">
+        </div>
+        <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-left-25 margin-top-8">
+            For Shoppers
+        </div>
+        <div class="roboto weight-500 size-18 line-height-28 margin-right-10 margin-left-25 margin-top-8">
+            We bring brand details that helps you make wise decisions.
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12">
+            <button class="secondary width-90 margin-bottom-32 background-white">
+                <a class="noto-sherif weight-600 size-20 line-height-28 dark-blue" href="{% url 'brand:brand_listing_default' %}">Let's start now</a>
+            </button>
+        </div>
+    </div>
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="intro-container1">
+            <img class="height-fit-content" src="{% static 'assets/for_brands.png' %}" alt="Home page 3">
+        </div>
+        <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-left-25 margin-top-8">
+            For Brands
+        </div>
+        <div class="roboto weight-500 size-18 line-height-28 margin-right-10 margin-left-25 margin-top-8">
+            We bring brand details that helps you make wise decisions.
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12">
+            <button class="secondary width-90 margin-bottom-32 background-white">
+                <div class="noto-sherif weight-600 size-20 line-height-28 dark-blue">Join Us</div>
+            </button>
+        </div>
+    </div>
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="intro-container1">
+            <img class="height-fit-content" src="{% static 'assets/for_experts.png' %}" alt="Home page 3">
+        </div>
+        <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-left-25 margin-top-8">
+            For Experts
+        </div>
+        <div class="roboto weight-500 size-18 line-height-28 margin-right-10 margin-left-25 margin-top-8">
+            We bring brand details that helps you make wise decisions.
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12">
+            <button class="secondary width-90 margin-bottom-32 background-white">
+                <div class="noto-sherif weight-600 size-20 line-height-28 dark-blue">Join Us</div>
+            </button>
+        </div>
+    </div>
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="intro-container1">
+            <img class="height-fit-content" src="{% static 'assets/deals.png' %}" alt="Home page 3">
+        </div>
+        <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-left-25 margin-top-8">
+            Deals
+        </div>
+        <div class="roboto weight-500 size-18 line-height-28 margin-right-10 margin-left-25 margin-top-8">
+            We bring brand details that helps you make wise decisions.
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12 margin-bottom-66-pc">
+            <button class="secondary width-90 margin-bottom-32 background-white">
+                <div class="noto-sherif weight-600 size-20 line-height-28 dark-blue">Check out the Deals</div>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="background-light-orange">
+
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="icons margin-top-66">
+
+        </div>
+        <div class="noto-sherif weight-700 size-32 line-height-44 flex justify-content-center align-center text-align-center">
+            Brands That Deserve Your Love Today!
+        </div>
+        <div class="roboto weight-500 size-18 text-align-center line-height-28 margin-right-10 margin-left-10">
+            We are updating the directory daily and would love you to know the brands that could create buzz.
+        </div>
+    </div>
+    <div class="flex container3 justify-content-center">
+        <div class="flex margin-top-66-pc-adjusted justify-content-center">
+            <img class="height-fit-content max-width-webkit-fill" src="{% static 'assets/deserve_1.png' %}" alt="Home page 3">
+        </div>
+        <div class="container-lg flex justify-content-center flex-column">
+            <div class="flex margin-top-24 justify-content-center">
+                <img class="height-fit-content max-width-webkit-fill" src="{% static 'assets/deserve_2.png' %}" alt="Home page 3">
+            </div>
+        </div>
+        <div class="container-lg flex justify-content-center flex-column">
+            <div class="flex margin-top-24 justify-content-center">
+                <img class="height-fit-content max-width-webkit-fill" src="{% static 'assets/deserve_3.png' %}" alt="Home page 3">
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-content-center align-center margin-top-12 margin-bottom-66">
+        <button class="primary width-90 margin-bottom-32">
+            <div class="noto-sherif weight-600 size-20 line-height-28 white">Check All The New Arrivals</div>
+        </button>
+    </div>
+</div>
+
+<div>
+    <div class="container-lg flex justify-content-center flex-column">
+        <div class="icons margin-top-66">
+
+        </div>
+        <div
+            class="noto-sherif weight-700 font-size-28 line-height-44 flex justify-content-center align-center text-align-center margin-bottom-16">
+            A Range Of Experts To Assist You Find Your Style
+        </div>
+        <div class="roboto weight-500 size-18 text-align-center line-height-28 margin-right-10 margin-left-10">
+            Get to know more about all the designers, stylists and BrandScanner experts and let them assist you with
+            your styling.
+        </div>
+    </div>
+    <div class="flex container3 justify-content-space-evenly">
+        <div class="box-shadow-orange margin-top-66">
+            <div class="flex margin-top-24 flex-column">
+              <img class="height-fit-content max-width-485-adj" src="{% static 'assets/designer.png' %}" alt="Home page 3">
+              <div class="text-container">
+                <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-top-8">
+                  Designers(2000+)
+                </div>
+                <div class="roboto weight-500 size-18 line-height-28 margin-top-8">
+                  We bring brand details that help you make wise decisions.
+                </div>
+                <div class="flex justify-content-center align-center margin-top-12 margin-bottom-32">
+                  <button class="primary width-90">
+                    <a class="noto-sherif weight-600 size-20 line-height-28 white" href="{% url 'brand:brand_listing_default' %}">Let's start now</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box-shadow-orange margin-top-66">
+            <div class="flex margin-top-24 flex-column">
+              <img class="height-fit-content max-width-485-adj" src="{% static 'assets/stylist.png' %}" alt="Home page 3">
+              <div class="text-container">
+                <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-top-8">
+                    Stylists (1000+)
+                </div>
+                <div class="roboto weight-500 size-18 line-height-28 margin-top-8">
+                  We bring brand details that help you make wise decisions.
+                </div>
+                <div class="flex justify-content-center align-center margin-top-12 margin-bottom-32">
+                  <button class="primary width-90">
+                    <div class="noto-sherif weight-600 size-20 line-height-28 white">Let's start now</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box-shadow-orange margin-top-66">
+            <div class="flex margin-top-24 flex-column">
+              <img class="height-fit-content max-width-485-adj" src="{% static 'assets/brand_experts.png' %}" alt="Home page 3">
+              <div class="text-container">
+                <div class="noto-sherif weight-700 font-size-28 line-height-36 margin-top-8">
+                    The Brand Scanner Experts
+                </div>
+                <div class="roboto weight-500 size-18 line-height-28 margin-top-8">
+                  We bring brand details that help you make wise decisions.
+                </div>
+                <div class="flex justify-content-center align-center margin-top-12 margin-bottom-32">
+                  <button class="primary width-90">
+                    <div class="noto-sherif weight-600 size-20 line-height-28 white">Let's start now</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+<div class="background-light-orange margin-bottom-66">
+    <div class="flex justify-content-center">
+        <div class="flex margin-top-66 justify-content-center hide-on-mobile margin-left-100">
+            <img style="height:500px" src="{% static 'assets/for_brands_banner.png' %}" alt="Home page 3">
+        </div>
+        <div class="flex justify-content-center flex-column">
+
+            <div class="container-lg flex justify-content-center flex-column">
+                <div class="icons margin-top-66">
+
+                </div>
+                <div
+                    class="noto-sherif weight-700 font-size-29 line-height-36 flex justify-content-center align-center text-align-center margin-bottom-16">
+                    Want to own up your brand page? <br /> Get your brand listed <br /> with us!
+                </div>
+                <div class="roboto weight-500 size-20 text-align-center text-wrap-balance line-height-28 margin-right-10 margin-left-10">
+                    Get seen and collaborate with lots of brands. Just fill in a questionnaire, after the signup
+                    process, so that we get to know you better.
+                </div>
+            </div>
+            <div class="flex justify-content-center align-center margin-top-12">
+                <button class="primary width-90 margin-bottom-16">
+                    <div class="noto-sherif weight-600 size-20 line-height-28 white">Fill In Some Quick Questions</div>
+                </button>
+            </div>
+            <div class="flex justify-content-center align-center switzer weight-500 font-color-greyish line-height-24">
+                <div class="margin-bottom-66">
+                    This takes less than 1 minute.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="flex flex-row-reverse justify-content-center">
+    <div class="flex justify-content-center flex-column">
+        <div class="container-lg flex justify-content-center flex-column">
+            <div
+                class="noto-sherif weight-700 font-size-28 line-height-44 flex justify-content-center align-center text-align-center">
+                Want to Collaborate With All the Cool Brands?
+            </div>
+            <div class="roboto weight-500 size-18 text-align-center line-height-28 margin-right-10 margin-left-10">
+                Get seen and collaborate with lots of brands. Just fill in a questionnaire, after the signup process, so
+                that we get to know you better.
+            </div>
+            <div class="hide-on-desktop">
+                <div class="flex margin-top-66 justify-content-center">
+                    <img class="height-fit-content" src="{% static 'assets/home_page_3.png' %}" alt="Home page 3">
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-content-center align-center margin-top-12">
+            <button class="primary width-90 margin-bottom-16">
+                <div class="noto-sherif weight-600 size-20 line-height-28 white">Fill In Some Quick Questions</div>
+            </button>
+        </div>
+        <div class="flex justify-content-center align-center switzer weight-500 font-color-greyish line-height-24">
+            <div class="margin-bottom-66">
+                This takes less than 1 minute.
+            </div>
+        </div>
+    </div>
+    <div class="hide-on-mobile margin-left-100">
+        <div class="flex justify-content-center">
+            <div>
+                <img class="height-fit-content" src="{% static 'assets/influencer_1.png' %}" alt="Home page 3">
+            </div>
+            <div>
+                <img class="height-fit-content" src="{% static 'assets/influencer_2.png' %}" alt="Home page 3">
+                <img class="height-fit-content" src="{% static 'assets/influencer_3.png' %}" alt="Home page 3">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

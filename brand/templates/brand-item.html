@@ -1,0 +1,88 @@
+{% load static %}
+<div class="brands-container">
+    <div class="brand-img">
+        <img style="width: 370px;height: 350px;" src="{{ brand.brandvisual.get_cover_url }}" alt="{{brand.name}}">
+    </div>
+    <div class="brand-container">
+        <div class="brand-name">
+            <i class="icon-brand-tag"></i>
+            {{ brand.name }}
+        </div>
+        <div class="highlights margin-top-15">
+            <div class="flex">
+                <div class="brand-star flex-1 margin-right-8">
+                    <div class="rating">{{brand.user_rating}}</div>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                </div>
+                <div class="brand-views flex-1 margin-right-8"><span class="roboto weight-700"
+                    style="color:#FF7000">{{brand.page_views}}</span><span class="roboto weight-700"
+                    style="color: #034121;"> Views</span></div>
+            <div class="brand-india flex-1 margin-right-8 flex justify-content-center align-center"><span class="roboto weight-700 margin-right-2"
+                    style="color:#E16300">Made</span><span class="roboto weight-700 margin-right-2"
+                    style="color:#224DDC">
+                    in</span><span class="roboto weight-700" style="color:#01753A"> India</span></div>
+            </div>
+        </div>
+        <p class="brand-para">{{brand.description}}</p>
+
+        <!-- brand tags -->
+        <div>
+            <div class="flex flex-wrap margin-bottom-16">
+
+                {% if brand.environment_friendly %}
+                <div class="tag-item">
+                    <div class="flex align-center brand-views width-max-content">
+                        <i class="icon-sustain sustainable"></i>
+                        <span class="sustainable">Sustainable</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if brand.handcrafted %}
+                <div class="tag-item">
+                    <div class="flex align-center brand-views width-max-content">
+                        <i class="icon-attractive-1 handcrafted margin-right-10"></i>
+                        <span class="handcrafted">Handcrafted</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if brand.indicative_pricing == "BGT" %}
+                <div class="tag-item">
+                    <div class="flex align-center brand-views width-max-content">
+                        <i class="icon-attractive-1 reasonable margin-right-10"></i>
+                        <span class="reasonable">Reasonable</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if brand.plus_size_available %}
+                <div class="tag-item">
+                    <div class="flex align-center brand-views width-max-content">
+                        <i class="icon-plus-size plus-size margin-right-10"></i>
+                        <span class="plus-size">Plus Size Available</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if brand.customizable %}
+                <div class="tag-item">
+                    <div class="flex align-center brand-views width-max-content">
+                        <i class="icon-attractive-1 customisable margin-right-10"></i>
+                        <span class="customisable">Customisable</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <button class="brand-btn">
+            <a class="brand-text" href="{% url 'brand:brand_detail' brand.id %}">View More Details</a>
+        </button>
+
+    </div>
+</div>

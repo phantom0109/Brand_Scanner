@@ -1,0 +1,21 @@
+django
+uwsgi
+ipython
+mysqlclient
+sqlparse
+pymemcache
+Pillow
+
+# 12-factor security
+django-environ
+
+# Django
+pytz
+geoip2
+
+# Run the following after updating this file:
+#    pip-compile --upgrade --output-file=requirements/requirements.txt requirements/requirements.in --resolver=backtracking
+#
+# to list new packages: pip list --outdated --not-required
+# to sync pip installations: pip-sync requirements/requirements.txt
+# the sync will uninstall unused packages too

@@ -1,0 +1,507 @@
+
+:root {
+    --primary-color-orange: #E16300;
+    --primary-color-light-shade-orange: #FF9737;
+    --primary-color-blue: #0F212A;
+    --primary-color-light-blue: #096C9D;
+    --secondary-color-white: #ffffff;
+}
+
+.background-light-orange{
+    background-color: #FFECDE;
+}
+
+.flex-column-reverse{
+    flex-direction: column-reverse;
+}
+
+.flex-row-reverse{
+    flex-direction: row-reverse;
+}
+
+
+.margin-left-100{
+    margin-left: 100px;
+}
+
+.margin-left-25{
+    margin-left: 25px;
+}
+
+button{
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 15px;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.margin-bottom-130{
+    margin-bottom: 130px;
+}
+
+.margin-top-48{
+    margin-top: 48px;
+}
+button.primary{
+    background: var(--primary-color-orange);
+    border: var(--primary-color-orange);
+}
+
+button.secondary{
+    background: var(--secondary-color-white);
+    border: 1px solid var(--primary-color-blue);
+}
+
+.margin-bottom-4{
+    margin-bottom: 4px;
+}
+
+
+.margin-bottom-44{
+    margin-bottom: 44px;
+}
+
+.dark-blue{
+    color: var(--primary-color-blue);
+}
+
+.background-white{
+    background: white;
+}
+
+.size-20{
+    font-size: 20px;
+}
+
+.switzer{
+    font-family: 'Switzer';
+}
+
+.height-32{
+    height: 32px;
+}
+
+.background-transparent{
+    background: transparent;
+}
+
+.border-white{
+    border: 1px solid white;
+}
+
+.line-height-28{
+    line-height: 28px;
+}
+
+.justify-content-space-between{
+    justify-content: space-between;
+}
+
+.line-height-44{
+    line-height: 44px;
+}
+
+.h1{
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+}
+
+.line-height-36{
+    line-height: 36px;
+}
+
+.line-height-24{
+    line-height: 24px;
+}
+
+.font-size-29{
+    font-size: 29px;
+}
+
+
+.font-size-28{
+    font-size: 28px;
+}
+
+.margin-right-8{
+    margin-right: 8px;
+}
+
+
+.line-height-44{
+    line-height: 44px;
+}
+
+
+.size-32{
+    font-size: 32px;
+}
+
+.margin-bottom-32{
+    margin-bottom:32px;
+}
+
+.max-width-webkit-fill{
+    max-width: -webkit-fill-available;
+}
+
+.margin-bottom-64{
+    margin-bottom:64px;
+}
+
+
+.width-357{
+    width: 357px;
+}
+
+.noto-sherif{
+    font-family: 'Noto Serif'
+}
+
+.light-orange{
+    background-color: #FFBC88;
+}
+
+button.primary:hover{
+    background: #BC590B;
+}
+
+.roboto{
+    font: 'Roboto';
+}
+
+.weight-500{
+    font-weight:500
+}
+
+button.primary:active{
+    background: #BC590B
+}
+
+button.primary:disabled{
+    background:#CBD8DE;
+    cursor: not-allowed;
+}
+
+.width-fit-content{
+    width:fit-content;
+}
+
+.width-auto{
+    width:auto;
+}
+
+
+button.grey{
+    background: #5A7989;
+}
+
+button.grey:hover, button.grey:active{
+    background: #5A7989;
+}
+
+button.grey:active{
+    background: #FFFFFF;
+}
+
+input[type=radio]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: flex;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #EEE;
+    border: 2px solid #AAA;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input[type="radio"]:checked {
+    background-color: #AAA;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #5A7989;
+    border-radius: 4px;
+    background: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Style the checkbox when it's checked */
+input[type="checkbox"]:checked {
+    background-color: #AAA;
+}
+
+
+/* Create a custom radio button appearance */
+.custom-radio {
+    display: flex;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #EEE;
+    border: 2px solid #AAA;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Style the custom radio button when it's checked */
+.custom-radio:checked::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #AAA;
+    border-radius: 50%;
+    margin: 4px;
+}
+
+/* Style the label for the radio button */
+.custom-radio-label {
+    margin-left: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+}
+
+.flex  {
+    display: flex;
+}
+
+.height-fit-content{
+    height: fit-content;
+}
+
+.justify-content-space-evenly{
+    justify-content: space-evenly;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.margin-top-12{
+    margin-top: 12px;
+}
+
+.margin-top-24{
+    margin-top: 24px;
+}
+
+.margin-top-75{
+    margin-top: 75px;
+}
+
+.margin-top-8{
+    margin-top: 8px;
+}
+
+.margin-right-24{
+    margin-right:40px;
+}
+
+.margin-bottom-30{
+    margin-bottom: 30px;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+}
+
+.margin-right-13{
+    margin-right: 13px;
+}
+
+.margin-bottom-66{
+    margin-bottom: 66px;
+}
+
+.margin-top-66{
+    margin-top: 66px;
+}
+
+.margin-top-32{
+    margin-top: 32px;
+}
+
+.margin-left-74{
+    margin-left: 74px;
+}
+
+.margin-left-8{
+    margin-left: 8px;
+}
+
+.margin-right-32{
+    margin-right:32px;
+}
+
+.margin-left-14{
+    margin-left:14px;
+}
+
+
+.margin-left-32{
+    margin-left:32px;
+}
+
+.border-color-unset{
+    border-color: unset;
+}
+
+.margin-right-10{
+    margin-right: 10px;
+}
+
+.margin-left-10{
+    margin-left: 10px;
+}
+
+.margin-bottom-8{
+    margin-bottom: 8px;
+}
+.margin-bottom-16{
+    margin-bottom: 16px;
+}
+
+.padding-20{
+    padding: 20px;
+}
+
+.margin-8{
+    margin: 8px;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.width-50{
+    width:50%
+}
+
+.width-40{
+    width:40%
+}
+
+.width-30{
+    width: 30%;
+}
+.width-100{
+    width:100%
+}
+
+.height-auto{
+    height: auto;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.margin-right-8{
+    margin-right: 8px;
+}
+
+.margin-bottom-12{
+    margin-bottom: 12px;
+}
+
+.size-30{
+    font-size: 30px;
+}
+
+.size-18{
+    font-size: 18px;
+}
+
+.text-wrap-balance{
+    text-wrap: balance;
+}
+
+
+.font-color-greyish {
+    color: #2E494B;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.margin-bottom-16{
+    margin-bottom: 16px;
+}
+
+.margin-left-24{
+    margin-left: 24px;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.width-max-content{
+    width: max-content;
+}
+
+.border-radius-50{
+    border-radius: 50px;
+}
+
+.background-grey{
+    background: rgba(15, 33, 42, 0.1);
+}
+
+
+.width-90{
+    width: 90% !important;
+}
+
+.white{
+    color:#FFFFFF;
+}
+
+.weight-600{
+    font-weight: 600;
+}
+
+.roboto{
+    font-family: 'Roboto';
+}
+
+.weight-700{
+    font-weight: 700;
+}
+
+.weight-600{
+    font-weight: 600;
+}
+
+.margin-right-2{
+    margin-right: 2px;
+}
