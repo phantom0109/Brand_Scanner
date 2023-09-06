@@ -92,7 +92,7 @@ traitlets==5.9.0
     #   matplotlib-inline
 urllib3==2.0.2
     # via requests
-uwsgi==2.0.21
+uwsgi==2.0.22
     # via -r requirements.in
 wcwidth==0.2.6
     # via prompt-toolkit
