@@ -322,6 +322,106 @@ def _create_foreign_and_import_as_model(
     )
 
 
+def _filter_foreign_and_import_as_model(
+    model_name, model_rules, csv_row, foreign
+):
+    err = _run_pre_checks(model_name, model_rules, csv_row, foreign)
+    if err:
+        return []
+
+    models = []
+    foreign__filter_multiple = model_rules["pre"]["foreign"]["filter_multiple"]
+
+    for foreign_model_name in foreign__filter_multiple:
+        filters = foreign__filter_multiple[foreign_model_name]
+        filter_kwargs = {}
+
+        for filter_rule in filters:
+            for filter_field_name, static_value in list(
+                filter_rule.get("static", {}).items()
+            ):
+                filter_kwargs[f"{filter_field_name}"] = static_value
+
+            for filter_field_name, _foreign_model_name in list(
+                filter_rule.get("foreign", {}).items()
+            ):
+                filter_kwargs[f"{filter_field_name}"] = foreign[
+                    _foreign_model_name
+                ]
+
+            # Expecting only one at a time
+            filter_field_name, csv_src_col_name = list(
+                filter_rule.get("source", {}).items()
+            )[0]
+            multiple_choice_answers = csv_row[csv_src_col_name].split(",")
+            for answer in multiple_choice_answers:
+                answer = answer.strip()
+
+                if csv_src_col_name in model_rules["pre"].get("replace", {}):
+                    answer = model_rules["pre"]["replace"][
+                        csv_src_col_name
+                    ].get(answer, answer)
+
+                filter_kwargs[f"{filter_field_name}"] = answer
+                # print(filter_kwargs)
+                foreign_model = apps.get_model("brand", foreign_model_name)
+                foreign_model_objs = foreign_model.objects.filter(
+                    **filter_kwargs
+                )
+
+                if foreign_model_objs.count() == 0:
+                    print(
+                        f"No foreign objects found for filter {filter_kwargs}"
+                    )
+
+                for foreign_model_obj in foreign_model_objs:
+                    model = _import_as_model(
+                        model_name,
+                        model_rules,
+                        csv_row,
+                        foreign={
+                            **foreign,
+                            foreign_model_name: foreign_model_obj,
+                        },
+                    )
+                    if model is not None:
+                        models.append(model)
+
+    return models
+
+
+def import_as_brand(all_model_rules, csv_row) -> Brand:
+    return _import_as_model("Brand", all_model_rules["Brand"], csv_row)
+
+
+def import_as_brandonlinestore(
+    all_model_rules, csv_row, foreign
+) -> [BrandOnlineStore]:
+    return _filter_foreign_and_import_as_model(
+        "BrandOnlineStore",
+        all_model_rules["BrandOnlineStore"],
+        csv_row,
+        foreign,
+    )
+
+
+def import_as_person(all_model_rules, csv_row) -> Person:
+    return _import_as_model("Person", all_model_rules["Person"], csv_row)
+
+
+def import_as_brandkeyperson(
+    all_model_rules, csv_row, foreign
+) -> BrandKeyPerson:
+    return _import_as_model(
+        "BrandKeyPerson", all_model_rules["BrandKeyPerson"], csv_row, foreign
+    )
+
+
+def import_as_brandvisual(all_model_rules, csv_row, foreign) -> BrandVisual:
+    return _create_foreign_and_import_as_model(
+        "BrandVisual", all_model_rules, csv_row, foreign
+    )
+
 
 def import_remaining_brandassets(
     all_model_rules, csv_row, foreign
