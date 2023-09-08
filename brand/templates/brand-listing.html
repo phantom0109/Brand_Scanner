@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% include 'brand-categories.html' with category=selected_category %}
+{% include 'brand-search.html' with category=selected_category %}
+<div class="flex justify-content-space-evenly align-center margin-top-12 margin-bottom-30 hide-on-desktop">
+    <!-- <a class="go-back">Back</a> -->
+    <div class="flex">
+        <button class="filter-button">
+            <i class="icon-filter"></i>
+            Filter_by
+        </button>
+
+        <button class="filter-button">
+            <i class="icon-sort"></i>
+            Alphabetically
+        </button>
+    </div>
+</div>
+<div class="flex filter-container-margin">
+    {% include 'brand-filter.html' with category_tags=category_tags %}
+    <div>
+        <div class="flex justify-content-center align-center search-result">
+            Search Results/ {{ brands|length }} out of {{ total_brands }}
+        </div>
+        <div class="flex justify-content-center align-center search-result-big">
+            We have curated some brands for you! ({{ brands|length }})
+        </div>
+        <div class="flex flex-wrap">
+            {% for brand in brands %}
+                {% include "brand-item.html" with brand=brand %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
