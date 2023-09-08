@@ -31,6 +31,130 @@ IMAGE_FILE_EXTENSIONS = ["jpg", "png", "webp", "svg"]
 IMAGE_DOWNLOAD_DIR = f"{BASE_DIR}/tmp/prefill/img"
 SUPPLIED_TAG = "SUPPLIED"
 
+
+def _check_if_existing_brandasset(new_model: BrandAsset) -> bool:
+    if new_model.asset is not None:
+        filename = (
+            os.path.basename(new_model.asset.url).split(".")[0].split("_")[0]
+        )
+        return BrandAsset.objects.filter(asset__icontains=filename).exists()
+    return False
+
+
+def _get_existing_brandasset(new_model: BrandAsset) -> BrandAsset:
+    if new_model.asset is not None:
+        filename = (
+            os.path.basename(new_model.asset.url).split(".")[0].split("_")[0]
+        )
+        return BrandAsset.objects.get(asset__icontains=filename)
+    return None
+
+
+CHECK_IF_EXISTING = {"BrandAsset": _check_if_existing_brandasset}
+GET_EXISTING = {"BrandAsset": _get_existing_brandasset}
+
+IGNORE_MODEL_ON_ERROR = {
+    "BrandAsset": {"asset": ["This field cannot be blank."]}
+}
+
+
+def _print_model(model_name, model_obj):
+    print(f"\nFor model {model_name}, model fields are:")
+    for field in model_obj._meta.get_fields():
+        try:
+            print("  ", field.name, ":", field.value_from_object(model_obj))
+        except AttributeError:
+            pass
+
+
+def _model_adjusted_csv_src_value(
+    model_field_rules, model_field_type, model_field_name, csv_src_value
+):
+    if is_none_or_empty_string(csv_src_value):
+        default_value = model_field_rules[model_field_name].get(
+            "default", None
+        )
+        if default_value is not None:
+            csv_src_value = default_value
+    else:
+        csv_src_value = csv_src_value.strip()
+
+        if model_field_type in ["enum"]:
+            csv_src_value = model_field_rules[model_field_name]["choices"][
+                csv_src_value
+            ]
+        elif model_field_type in ["email"]:
+            csv_src_value = csv_src_value.lower()
+        elif model_field_type in ["url"]:
+            # Remove query params
+            csv_src_value = csv_src_value.split("?")[0]
+            # Ensure URL ends with '/'
+            csv_src_value = (
+                csv_src_value
+                if csv_src_value.endswith("/")
+                else csv_src_value + "/"
+            )
+
+    return csv_src_value
+
+
+def _download_image(image_url) -> bool:
+    if is_none_or_empty_string(image_url):
+        return False
+
+    md5_name = str_to_md5(image_url)
+    for ext in IMAGE_FILE_EXTENSIONS:
+        if os.path.exists(f"{IMAGE_DOWNLOAD_DIR}/{md5_name}.{ext}"):
+            print("Image alredy exists. Skipping download.")
+            return True
+
+    jpg_b64_prefix = "data:image/jpeg;base64,"
+    png_b64_prefix = "data:image/png;base64,"
+    if image_url.startswith(jpg_b64_prefix):
+        prefix_len = len(jpg_b64_prefix)
+        image_b64 = image_url[prefix_len:]
+        Image.open(io.BytesIO(base64.b64decode(image_b64))).save(
+            f"{IMAGE_DOWNLOAD_DIR}/{md5_name}.jpg"
+        )
+    elif image_url.startswith(png_b64_prefix):
+        prefix_len = len(png_b64_prefix)
+        image_b64 = image_url[prefix_len:]
+        Image.open(io.BytesIO(base64.b64decode(image_b64))).save(
+            f"{IMAGE_DOWNLOAD_DIR}/{md5_name}.png"
+        )
+    else:
+        # Remove all query params.
+        # Assuming image url will end with image file ext.
+
+        image_url = image_url.split("?")[0]
+        image_ext = None
+
+        if image_url.endswith(".jpg") or image_url.endswith(".jpeg"):
+            image_ext = "jpg"
+        if image_url.endswith(".png"):
+            image_ext = "png"
+        elif image_url.endswith(".webp"):
+            image_ext = "webp"
+        elif image_url.endswith(".svg"):
+            image_ext = "svg"
+        else:
+            image_ext = "jpg"
+
+        resp = requests.get(image_url, stream=True, verify=False)
+        if resp.status_code != 200:
+            del resp
+            print("Non OK return code while downloading image.")
+            return False
+
+        with open(f"{IMAGE_DOWNLOAD_DIR}/{md5_name}.{image_ext}", "wb") as f:
+            resp.raw.decode_content = True
+            shutil.copyfileobj(resp.raw, f)
+
+        del resp
+
+    return True
+
+
 def _run_pre_checks(model_name, model_rules, csv_row, foreign) -> bool:
     must = model_rules["pre"].get("must", [])
     model_field_rules = model_rules["fields"]
