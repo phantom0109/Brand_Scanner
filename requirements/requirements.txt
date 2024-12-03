@@ -90,9 +90,11 @@ traitlets==5.9.0
     # via
     #   ipython
     #   matplotlib-inline
+typing-extensions==4.8.0
+    # via asgiref
 urllib3==2.0.2
     # via requests
-uwsgi==2.0.21
+uwsgi==2.0.23
     # via -r requirements.in
 wcwidth==0.2.6
     # via prompt-toolkit
